@@ -1,6 +1,6 @@
 <?php
 
-$propsInfo = array(
+$GLOBALS["propsInfo"] = array(
 	"header" => "Items",
 	"info" => "Configuration for an item.",
 	"tags" => array(
@@ -35,7 +35,7 @@ $propsInfo = array(
 	)
 );
 
-$props = array(
+$GLOBALS["props"] = array(
 	array(
 		"tags" => array("looks"),
 		"name" => "texture",

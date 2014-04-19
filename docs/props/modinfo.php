@@ -1,6 +1,6 @@
 <?php
 
-$propsInfo = array(
+$GLOBALS["propsInfo"] = array(
 	"header" => "ModInfo",
 	"info" => "Main mod configuration file. Required by every mod.",
 	"tags" => array(
@@ -15,7 +15,7 @@ $propsInfo = array(
 	)
 );
 
-$props = array(
+$GLOBALS["props"] = array(
 	array(
 		"tags" => array("internal"),
 		"name" => "internalName",
