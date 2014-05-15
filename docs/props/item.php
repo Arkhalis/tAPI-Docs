@@ -17,6 +17,10 @@ $GLOBALS["propsInfo"] = array(
 			"name" => "Appearance"
 		),
 		array(
+			"tag" => "armor",
+			"name" => "Armor"
+		),
+		array(
 			"tag" => "use",
 			"name" => "Use"
 		),
