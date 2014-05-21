@@ -480,7 +480,7 @@ $GLOBALS["props"] = array(
 		"tags" => array("potion"),
 		"name" => "potion",
 		"type" => "bool",
-		"text" => "Whether the item is a potion.",
+		"text" => "Whether the item is a potion (triggers the <em>Potion Sickness</em> debuff).",
 		"default" => false
 	),
 	array(
