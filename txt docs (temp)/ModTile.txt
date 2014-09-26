@@ -1,0 +1,4 @@
+public override void Update() { } // called every single frame.
+
+public override void PreDraw(SpriteBatch sb, bool solidTiles) { } // if in draw range, draws before all tiles
+public override void PostDraw(SpriteBatch sb, bool solidTiles) { } // and after all nonsolid

@@ -1,0 +1,20 @@
+public override void OnLoad() { }
+public override void OnUnload() { }
+public override void OnAllModsLoaded() { }
+
+public override void ChooseTrack(ref string current) { }
+
+public override void PreGameDraw(SpriteBatch sb) { }
+public override void PostGameDraw(SpriteBatch sb) { }
+
+public override void OnCombatTextSpawn(ref CombatText combattext, Rectangle location) { }
+public override void OnItemTextSpawn(ref ItemText itemtext, Item item) { }
+
+//Called when a client sends a message starting with '/'. Returning true will prevent further calls on this command.
+//If the client fails to handle the command(all return false), it will be sent to server to handle.
+public override bool ChatCommand(Player player, string command, string args) { return false; }
+
+//Called when input to the server is given. If help is true, then text is empty and you should print the help for your custom 
+//commands instead of executing those commands. 
+//Like above, returning true will prevent further calls, help command ignores this though.
+public override bool ServerCommand(string text, bool help) { return false; }

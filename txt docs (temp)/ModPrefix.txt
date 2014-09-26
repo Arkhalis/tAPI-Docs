@@ -1,0 +1,18 @@
+public override void OnItemStrike(Item i, Player owner, NPC target) { }
+public override void OnItemStrike(Item i, Player owner, Player target) { } // TODO
+public override void OnItemUse(Item i, Player owner) { }
+
+public override void OnPlayerHit(Player p, Item acc, int damage, int hitDir, bool crit, bool pvp) { }
+
+public override void ApplyToPlayer(Player p) { }
+public override void ApplyToItem(Item i) { }
+
+public override void Save(BinBuffer bb) { }
+public override void Load(BinBuffer bb) { }
+
+public override bool? Prefix(Item i, int pre, bool avoidWrong) { return null; }
+
+public override void CanApplyToItem(Item i, ref bool current) { }
+public override void CanHavePrefix(Item i, ref bool current) { }
+public override void CanHaveType(Item i, ref PrefixType type) { }
+public override void AdditionalTooltips(Item i, ref List<Tuple<string, bool>> current) { }
