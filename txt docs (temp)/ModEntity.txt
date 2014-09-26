@@ -1,0 +1,3 @@
+public override void Initialize() { }
+public override void Save(BinBuffer bb) { }
+public override void Load(BinBuffer bb) { }

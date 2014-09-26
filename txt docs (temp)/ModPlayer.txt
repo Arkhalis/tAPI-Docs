@@ -1,0 +1,48 @@
+public override void OnUpdate() { }
+public override void PostUpdate() { }
+
+public override void OnInventoryReset(bool mediumcoreRespawn) { }
+
+public override void PreItemCheck() { } //Called before item check executes.
+public override void PostItemCheck() { } //Called after item check executes.
+public override bool PreShoot(Player player, Vector2 position, Vector2 velocity, int projType, int damage, float knockback) { return true; }
+
+//Called when an NPC damages this player.
+public override void DamagePlayer(NPC npc, int hitDir, ref int damage, ref bool crit, ref float critMult) { }
+public override void DealtPlayer(NPC npc, int hitDir, int dmgDealt, bool crit) { }
+
+//Called when a projectile damages this player.
+public override void DamageProjectile(Projectile p, int hitDir, ref int damage, ref bool crit, ref float critMult) { }
+public override void DealtProjectile(Projectile p, int hitDir, int dmgDealt, bool crit) { }
+
+//Called when this player attacks another player.
+public override void DamagePVP(Player p, int hitDir, ref int damage, ref bool crit, ref float critMult) { }
+public override void DealtPVP(Player p, int hitDir, int dmgDealt, bool crit) { }
+
+//called when this player damages an NPC.
+public override void DamageNPC(NPC npc, int hitDir, ref int damage, ref float knockback, ref bool crit, ref float critMult) { }
+public override void DealtNPC(NPC npc, int hitDir, int dmgDealt, float knockback, bool crit) { }
+
+public override bool? CanHitPlayer(NPC npc) { return null; }
+public override bool? CanHitPVP(Player p) { return null; }
+public override bool? CanHitNPC(NPC npc) { return null; }
+
+public override void OnHitNPC(NPC victim, Vector2 location) { }
+public override void OnHitPVP(Player victim, Vector2 location) { }
+
+public override void ModifyDrawLayerList(List<PlayerLayer> list) { }
+public override void ModifyDrawLayerHeadList(List<PlayerLayer> list) { }
+public override void DrawMapIcon(SpriteBatch sb, Vector2 drawPosition, float scale, Color color, ref string cursorText) { }
+public override Color ModifyDrawColor(Color color) { return color; }
+
+//can be used to manipulate the player's controls, flip them, etc.
+public override void SetControls() { }
+
+//liquidType: 0-2, water, lava, honey; poolCount = the amount of water tiles in the pool; worldLayer: 0-4, sky, surface, dirtlayer, rocklayer, hell
+//if caughtType is -1, it will bobber but not spawn any item when brought back, allowing for unconventional catches
+public override void OnFishSelected(Item fishingRod, Item bait, int liquidType, int poolCount, int worldLayer, int questFish, ref int caughtType) { }
+public override void GetFishingLevel(Item fishingRod, Item bait, ref int fishingLevel) { }
+public override void AnglerQuestReward(float quality, ref List<Item> rewardItems) { }
+
+//Used to allow custom auto select handling (similar to the cannons), return null if nothing, otherwise your autoSelect name
+public override string AutoSelectOnTile(int type) { return null; }

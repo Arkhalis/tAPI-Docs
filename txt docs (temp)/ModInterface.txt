@@ -1,0 +1,25 @@
+public override void ModifyInterfaceLayerList(List<InterfaceLayer> list) { }
+
+public override bool PreDrawInterface(SpriteBatch sb) { return true; }
+public override void PostDrawInterface(SpriteBatch sb) { }
+public override bool PreDrawInventory(SpriteBatch sb) { return true; }
+public override void PostDrawInventory(SpriteBatch sb) { }
+public override bool PreDrawCrafting(SpriteBatch sb) { return true; }
+public override void PostDrawCrafting(SpriteBatch sb) { }
+public override bool PreDrawMap(SpriteBatch sb) { return true; }
+public override void PostDrawMap(SpriteBatch sb) { }
+
+public override bool PreDrawItemSlot(SpriteBatch sb, ItemSlot slot) { return true; }
+public override void PostDrawItemSlot(SpriteBatch sb, ItemSlot slot) { }
+public override bool PreDrawItemSlotBackground(SpriteBatch sb, ItemSlot slot) { return true; }
+public override void PostDrawItemSlotBackground(SpriteBatch sb, ItemSlot slot) { }
+public override bool PreDrawItemSlotItem(SpriteBatch sb, ItemSlot slot) { return true; }
+public override void PostDrawItemSlotItem(SpriteBatch sb, ItemSlot slot) { }
+public override bool PreItemSlotLeftClick(ItemSlot slot, ref bool release) { return true; }
+public override void PostItemSlotLeftClick(ItemSlot slot, bool release) { }
+public override bool PreItemSlotRightClick(ItemSlot slot, ref bool release) { return true; }
+public override void PostItemSlotRightClick(ItemSlot slot, bool release) { }
+
+public override bool? ItemSlotAllowsItem(ItemSlot slot, Item item) { return null; }
+public override bool KeyboardInputFocused() { return false; }
+public override bool OverrideChat() { return false; }
