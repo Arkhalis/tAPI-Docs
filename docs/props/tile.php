@@ -1,8 +1,8 @@
 <?php
 
 $GLOBALS["propsInfo"] = array(
-	"header" => "NPCs",
-	"info" => "Configuration for an NPC.",
+	"header" => "Tiles",
+	"info" => "Configuration for a tile.",
 	"tags" => array(
 		array(
 			"tag" => "internal",
