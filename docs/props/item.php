@@ -35,14 +35,18 @@ $GLOBALS["propsInfo"] = array(
 		array(
 			"tag" => "tile",
 			"name" => "Tile"
+		),
+		array(
+			"tag" => "unsorted",
+			"name" => "Unsorted"
 		)
 	)
 );
 
 $GLOBALS["props"] = array(
 	array(
-		"tags" => array("looks"),
 		"name" => "texture",
+		"tags" => array("looks"),
 		"type" => "string",
 		"text" => "Path to the texture used by this item, not including file extension.",
 		"default" => "current JSON filename"
