@@ -28,321 +28,463 @@ $GLOBALS["propsInfo"] = array(
 			"tag" => "gplay",
 			"name" => "Gameplay"
 		)
+		array(
+			"tag" => "temp"
+			"name" => "Temporary"
+		)
 	)
 );
 
 $GLOBALS["props"] = array(
 	array(
-		"tags" => array("looks"),
+		"tags" => array("temp"),
+		"name" => "name",
+		"type" => "string",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
 		"name" => "texture",
 		"type" => "string",
-		"text" => "Path to the texture used by this NPC, not including file extension.",
-		"default" => "current JSON filename"
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("internal"),
+		"tags" => array("temp"),
 		"name" => "code",
 		"type" => "string",
-		"text" => "Full type name for the class to be used for this NPC.",
-		"default" => "<code>{internalName}.NPCs.{filename}</code>"
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "displayName",
+		"tags" => array("temp"),
+		"name" => "instanceCode",
 		"type" => "string",
-		"text" => "NPC name in-game."
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("looks"),
-		"name" => "size",
-		"type" => "int[2]",
-		"text" => "NPC size in pixels.",
-		"drop" => "
-			<div class=\"alert alert-info\"><code>width</code> and <code>height</code> properties can be used instead.</div>
-		"
-	),
-	array(
-		"tags" => array("looks"),
+		"tags" => array("temp"),
 		"name" => "width",
-		"type" => "int",
-		"text" => "NPC width in pixels.",
-		"drop" => "
-			<div class=\"alert alert-info\"><code>size</code> property can be used instead.</div>
-		"
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("looks"),
+		"tags" => array("temp"),
 		"name" => "height",
-		"type" => "int",
-		"text" => "NPC height in pixels.",
-		"drop" => "
-			<div class=\"alert alert-info\"><code>size</code> property can be used instead.</div>
-		"
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("looks"),
-		"name" => "scale",
-		"type" => "float",
-		"text" => "A scale multiplier to be used by the NPC.",
-		"default" => 1
+		"tags" => array("temp"),
+		"name" => "size",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "npcSlots",
-		"type" => "float",
-		"text" => "The amount of spawn slots this NPC takes up, the higher the value, the less other NPCs can spawn.",
-		"default" => 1
+		"tags" => array("temp"),
+		"name" => "displayName",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("looks"),
-		"name" => "frameCount",
-		"type" => "int",
-		"text" => "The amount of frames used in this NPC's texture.",
-		"default" => 1
+		"tags" => array("temp"),
+		"name" => "frameWidth",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "aiStyle",
-		"type" => "int",
-		"text" => "The AI used by this NPC."
+		"tags" => array("temp"),
+		"name" => "frameHeight",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("looks"),
-		"name" => "animationStyle",
-		"type" => "int",
-		"text" => "The animation style used by this NPC."
+		"tags" => array("temp"),
+		"name" => "drawOffsetY",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "friendly",
-		"type" => "bool",
-		"text" => "Whether this NPC is friendly.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "sheetColumns",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "townNPC",
-		"type" => "bool",
-		"text" => "Whether this NPC is a town NPC.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "sheetRows",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("interface"),
-		"name" => "textureHead",
-		"type" => "string",
-		"text" => "Used only by town NPCs. Path to the head texture used by this NPC, not including file extension.",
-		"default" => "<code>{texture}._Head</code>"
+		"tags" => array("temp"),
+		"name" => "solid",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "occupation",
-		"type" => "string",
-		"text" => "The type of town NPC this NPC is.",
-		"default" => "current JSON filename"
+		"tags" => array("temp"),
+		"name" => "solidTop",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "male",
-		"type" => "bool",
-		"text" => "Whether this NPC is male or female."
+		"tags" => array("temp"),
+		"name" => "frameImportant",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("interface"),
-		"name" => "shop",
-		"type" => "bool",
-		"text" => "Whether this NPC has a shop.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "placementFrameX",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "boss",
-		"type" => "bool",
-		"text" => "Whether this NPC is a boss.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "placementFrameY",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "netAlways",
-		"type" => "bool",
-		"text" => "Whether this NPC should always be synced in multiplayer.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "placementConditions",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("stats"),
-		"name" => "lifeMax",
-		"type" => "int",
-		"text" => "The maximum amount of life for this NPC."
+		"tags" => array("temp"),
+		"name" => "placementOrigin",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("stats"),
-		"name" => "damage",
-		"type" => "int",
-		"text" => "The amount of damage dealt by the NPC.",
-		"default" => 0
+		"tags" => array("temp"),
+		"name" => "breaksFast",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("stats"),
-		"name" => "defense",
-		"type" => "int",
-		"text" => "The amount of defense had by the NPC.",
-		"default" => 0
+		"tags" => array("temp"),
+		"name" => "breaksByPick",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("stats"),
-		"name" => "knockbackResist",
-		"type" => "float",
-		"text" => "The amount of resistance to knockback the NPC has.",
-		"default" => 1
+		"tags" => array("temp"),
+		"name" => "breaksByAxe",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "dontTakeDamage",
-		"type" => "bool",
-		"text" => "Whether the NPC is immune to damage.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "breaksByHammer",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "lavaImmune",
-		"type" => "bool",
-		"text" => "Whether the NPC is immune to lava damage.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "breaksByCut",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "noGravity",
-		"type" => "bool",
-		"text" => "Whether the NPC is unaffected by gravity.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "breaksByWater",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "noTileCollide",
-		"type" => "bool",
-		"text" => "Whether the NPC can pass through tiles.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "breaksByLava",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("looks"),
-		"name" => "behindTiles",
-		"type" => "bool",
-		"text" => "Whether or not the NPC is drawn behind tiles.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "minPick",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("stats"),
-		"name" => "critChance",
-		"type" => "int",
-		"text" => "The chance of the NPC performing a critical strike, in percent.",
-		"default" => 0
+		"tags" => array("temp"),
+		"name" => "minAxe",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("stats"),
-		"name" => "critMult",
-		"type" => "float",
-		"text" => "The damage multiplier when the NPC performs a critical strike.",
-		"default" => 2
+		"tags" => array("temp"),
+		"name" => "minHammer",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("looks"),
-		"name" => "color",
-		"type" => array("int[3]","int[4]"),
-		"text" => "The color to tint the NPC's texture, in RGB or RGBA format.",
-		"default" => "<code>[255,255,255]</code>",
-		"drop" => "
-			<div class=\"bs-example\">
-				<code>\"color\": [255,255,255]</code> - white<br />
-				<code>\"color\": [255,0,0,127]</code> - red, half-transparent<br />
-			</div>
-		"
+		"tags" => array("temp"),
+		"name" => "ratePick",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("looks"),
-		"name" => "alpha",
-		"type" => "int",
-		"text" => "The transparency of the NPC, where 0 is opaque, and 255 is invisible.",
-		"default" => 0
+		"tags" => array("temp"),
+		"name" => "rateAxe",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("interface"),
-		"name" => "showHealthBar",
-		"type" => "bool",
-		"text" => "Whether to show the health bar above the NPC.",
-		"default" => true
+		"tags" => array("temp"),
+		"name" => "rateHammer",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("interface"),
-		"name" => "lifeBarScale",
-		"type" => "float",
-		"text" => "A scale multiplier used by the NPC's life bar.",
-		"default" => 1
+		"tags" => array("temp"),
+		"name" => "table",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("interface"),
-		"name" => "realLifeHealthBar",
-		"type" => "bool",
-		"text" => "Whether or not to use the <code>realLife</code> value for the health bar, used for multipart NPCs.",
-		"default" => false
+		"tags" => array("temp"),
+		"name" => "chair",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "buffImmune",
-		"type" => "<string/int>[?]",
-		"text" => "An array of buff names and types that this NPC is immune to.",
-		"warning" => true
+		"tags" => array("temp"),
+		"name" => "torch",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "soundHit",
-		"type" => array("int","string"),
-		"text" => "The hit sound used by this NPC.",
-		"drop" => "
-			<div class=\"bs-example\">
-				<code>\"soundHit\": 12</code> - vanilla sound 12 (<em>Space Gun</em>)<br />
-				<code>\"soundHit\": \"MySound\"</code> - custom sound filename without the extension
-			</div>
-		",
-		"warning" => true
+		"tags" => array("temp"),
+		"name" => "door",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "soundKilled",
-		"type" => array("int","string"),
-		"text" => "The death sound used by this NPC.",
-		"drop" => "
-			<div class=\"bs-example\">
-				<code>\"soundKilled\": 12</code> - vanilla sound 12 (<em>Space Gun</em>)<br />
-				<code>\"soundKilled\": \"MySound\"</code> - custom sound filename without the extension
-			</div>
-		",
-		"warning" => true
+		"tags" => array("temp"),
+		"name" => "rope",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "value",
-		"type" => array("int","int[1-4]"),
-		"text" => "NPC's value (also the average amount of copper coins it drops).",
-		"drop" => "
-			<div class=\"bs-example\">
-				<code>\"value\": 105099</code> - 10g 50s 99c<br />
-				<code>\"value\": [2,20,9,3]</code> - 2p 20g 9s 3c
-			</div>
-		"
+		"tags" => array("temp"),
+		"name" => "noAttach",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "music",
-		"type" => "string",
-		"text" => "The name of the music to play when this NPC is on screen.",
-		"warning" => true
+		"tags" => array("temp"),
+		"name" => "tileDungeon",
+		"type" => "",
+		"text" => "",
+		"default" => ""
 	),
 	array(
-		"tags" => array("gplay"),
-		"name" => "drops",
-		"type" => "object[?]",
-		"text" => "An array of items this NPC can drop.",
-		"warning" => true
-	)
+		"tags" => array("temp"),
+		"name" => "blocksLight",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "blocksSun",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "glows",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "shines",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "shineChance",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "sheetYAligned",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "frame",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "frameMax",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "frameCounter",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "frameCounterMax",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "brick",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "moss",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "stone",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "mergeDirt",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "tileSand",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "tileFlame",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "alchemyFlower",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "sound",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "soundGroup",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "dust",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "mapColor",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "mapHoverText",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "drop",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "tileMerge",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+
 );
 
 ?>
