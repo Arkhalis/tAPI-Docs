@@ -49,7 +49,7 @@ $GLOBALS["props"] = array(
 		"tags" => array("def"),
 		"type" => "string",
 		"text" => "The unique item name in the mod",
-		"default" => "File's name without extension"
+		"default" => "File's name without extension",
 		"drop" => "<div class=\"alert alert-info\">The actual item name will be <code>internalName</code> : name where internalName is your mod's internal name.</div>"
 	),
 	array(
