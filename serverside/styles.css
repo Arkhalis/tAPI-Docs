@@ -1,0 +1,83 @@
+.bs-docs-header {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.bs-docs-header .container h1 + p {
+	margin-top: -16px;
+}
+
+.myDropdownTarget {
+	display: none;
+	margin-top: 8px;
+	margin-bottom: -12px;
+}
+.myDropdownDiv {
+	margin-bottom: 12px;
+}
+.myDefaultText {
+	display: none;
+	position: relative;
+	z-index: 1000;
+}
+
+.property + .property {
+	margin-top: 8px;
+	padding-top: 6px;
+	border-top: 1px #EEEEEE solid;
+}
+
+.propertyButtonBlock {
+	float: right;
+	margin-left: 8px;
+}
+
+.myDropdownTarget .bs-example {
+	padding: 14px;
+	padding-right: 6px;
+	padding-top: 40px;
+}
+
+.myDropdownTarget .bs-callout {
+	padding: 6px;
+	padding-left: 10px;
+}
+
+.myDropdownTarget .alert {
+	padding: 6px;
+}
+
+.bs-callout {
+	margin-left: 16px;
+}
+
+.bs-callout ul {
+	margin-bottom: 0px;
+}
+
+div + .bs-callout {
+	margin-top: 8px;
+}
+
+div + .bs-example {
+	margin-top: 8px;
+}
+
+div + .alert {
+	margin-top: 8px;
+}
+
+.hr-separator {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.bs-example .hr-separator {
+	margin-left: -14px;
+	margin-right: -6px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.code-indent {
+	text-indent: 24px;
+}

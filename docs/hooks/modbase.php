@@ -1,97 +1,82 @@
 <?php
 
-$GLOBALS["propsInfo"] = array(
-	"header" => "ModInfo",
-	"info" => "Main mod configuration file. Required by every mod.",
-	"tags" => array(
-		array(
-			"tag" => "internal",
-			"name" => "Internal"
-		),
-		array(
-			"tag" => "info",
-			"name" => "Informative"
-		)
-	)
+$GLOBALS["hooksInfo"] = array(
+	"header" => "ModBase"
 );
 
-$GLOBALS["props"] = array(
+$GLOBALS["hooks"] = array(
 	array(
-		"tags" => array("internal"),
-		"name" => "internalName",
-		"type" => "string",
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"drop" => "
-			<div>This property has to be unique between all mods.</div>
-			<div class=\"bs-callout bs-callout-warning\">
-				Don't use any names that might be used in other namespaces, for example:<br />
-				<ul><li>Terraria</li><li>TAPI</li><li>LitJson</li><li>System</li></ul>
-			</div>
-		"
+		"hook" => "OnLoad",
+		"text" => "Called when the mod gets loaded."
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "displayName",
-		"type" => "string",
-		"text" => "The name visible in the mods menu."
+		"hook" => "OnUnload",
+		"text" => "Called when the mod gets unloaded."
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "author",
-		"type" => "string",
-		"text" => "Mod author."
+		"hook" => "OnAllModsLoaded",
+		"text" => "Called after all mods get loaded."
+	),
+
+	array(
+		"hook" => "ChooseTrack",
+		"args" => array(
+			array(
+				"type" => "ref string", "name" => "current",
+				"text" => "Current music track name to play. Change the value to change the track played."
+			)
+		),
+		"text" => "Called each frame when the game decides which music track to play."
+	),
+
+	array(
+		"hook" => "PreGameDraw",
+		"args" => array(
+			array(
+				"type" => "SpriteBatch", "name" => "sb",
+				"text" => "SpriteBatch instance used to do all the drawing."
+			)
+		),
+		"text" => "Called each frame before anything gets drawn."
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "version",
-		"type" => array("string","int[1-4]"),
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"default" => "<code>[1,0,0,0]</code>",
-		"drop" => "
-			<div class=\"bs-example\">
-				<code>\"version\": \"r1\"</code><br />
-				<code>\"version\": [1,0,0,0]</code>
-			</div>
-		"
+		"hook" => "PostGameDraw",
+		"args" => array(
+			array(
+				"type" => "SpriteBatch", "name" => "sb",
+				"text" => "SpriteBatch instance used to do all the drawing."
+			)
+		),
+		"text" => "Called each frame after everything gets drawn."
+	),
+
+	array(
+		"hook" => "OnCombatTextSpawn",
+		"args" => array(
+			array(
+				"type" => "ref CombatText", "name" => "combattext",
+				"text" => "New CombatText instance."
+			),
+			array(
+				"type" => "Rectangle", "name" => "location",
+				"text" => "Bounding box of the CombatText."
+			)
+		),
+		"text" => "Called when a new CombatText instance is created (damage being dealt)."
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "includePDB",
-		"type" => "bool",
-		"text" => "Whether the mod packer should create a debug PDB file.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>The PDB file allows tAPI to display line numbers on which errors happen.</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "warnOnReload",
-		"type" => "bool",
-		"text" => "Determines whether it's unsafe to reload the mod and the game should be restarted instead.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>Some mods that allow to be used as APIs can cause problems when reloaded. Set this property to mark such mods.</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "modReferences",
-		"type" => "string[?]",
-		"text" => "List of all mod dependencies.",
-		"drop" => "
-			<div class=\"myDropdownDiv\">All the names are mod <code>internalName</code> properties.</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "dllReferences",
-		"type" => "string[?]",
-		"text" => "List of all DLL dependencies.",
-		"drop" => "
-			
-		",
-		"warning" => true
+		"hook" => "OnItemTextSpawn",
+		"args" => array(
+			array(
+				"type" => "ref ItemText", "name" => "itemtext",
+				"text" => "New ItemText instance."
+			),
+			array(
+				"type" => "Item", "name" => "item",
+				"text" => "Item for which the ItemText was created."
+			)
+		),
+		"text" => "Called when a new ItemText instance is created (item being picked up / crafted / reforged)."
 	)
 );
 
