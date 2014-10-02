@@ -123,7 +123,7 @@ function echoHook($hook) {
 		<meta name="keywords" content="tAPI, Terraria, modding, mod, API, application programming interface, game">
 		<meta name="author" content="tAPI Development Team">
 		<title>
-			tAPI &middot; Docs &middot; <?php echo($propsInfo["header"]); ?>
+			tAPI &middot; Docs &middot; <?php echo($hooksInfo["header"]); ?>
 		</title>
 		<link href="bootstrap.min.css" rel="stylesheet">
 		<link href="docs.min.css" rel="stylesheet">
