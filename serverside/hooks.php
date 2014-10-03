@@ -40,7 +40,7 @@ function echoHook($hook) {
 			echo("</div>");
 			echo("<div class=\"myPropertyInner\">".$hook["text"]."</div>");
 
-			echo("<div class=\"myDropdownTarget myCopy\">");
+			echo("<div class=\"myDropdownTarget myCopy\" style=\"padding-left: 12px;\">");
 				echo("<div style=\"margin-bottom: 12px; clear: both;\">
 					<button type=\"button\" class=\"myCopyButton btn btn-default btn-sm\" style=\"float: left;\">Copy</button>
 					<div style=\"float: left; position: relative; z-index: -1; margin-left: -4px; margin-top: 4px;\"><code class=\"myCopyText\" style=\"padding: 7px 6px 6px 10px;\">".genHookSnippet($hook, false)."</code></div>
