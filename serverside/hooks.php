@@ -144,7 +144,7 @@ function echoHook($hook) {
 			<link rel="shortcut icon" href="../assets/ico/favicon.ico">-->
 	</head>
 	<body>
-		<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -160,7 +160,7 @@ function echoHook($hook) {
 				</div>
 			</div>
 		</div>
-		<div class="container bs-docs-container">
+		<div class="container bs-docs-container" style="margin-top: 71px;">
 			<div class="row">
 				<div class="col-md-12" role="main">
 					<div class="bs-docs-section">

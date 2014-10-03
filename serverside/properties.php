@@ -86,7 +86,7 @@ function echoProps($tag) {
 			<link rel="shortcut icon" href="../assets/ico/favicon.ico">-->
 	</head>
 	<body>
-		<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -102,7 +102,7 @@ function echoProps($tag) {
 				</div>
 			</div>
 		</div>
-		<div class="container bs-docs-container">
+		<div class="container bs-docs-container" style="margin-top: 71px;">
 			<div class="row">
 				<div class="col-md-9" role="main">
 					<div class="bs-docs-section">
@@ -120,7 +120,7 @@ foreach ($GLOBALS["propsInfo"]["tags"] as $tag) {
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="bs-docs-sidebar hidden-print" role="complementary">
+					<div class="bs-docs-sidebar hidden-print" style="position: fixed; top: 71px;" role="complementary">
 						<ul class="nav bs-docs-sidenav">
 <?php
 foreach ($GLOBALS["propsInfo"]["tags"] as $tag) {
