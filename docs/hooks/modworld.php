@@ -118,19 +118,6 @@ $GLOBALS["hooks"] = array(
 		"text" => "Called when a player leaves the server.",
 		"warning" => true //not sure if it's called on both the server and client
 	)
-
-	/*
-	array(
-		"hook" => "Initialize",
-		"args" => array(
-			array(
-				"type" => "ref string", "name" => "current",
-				"text" => "Current music track name to play. Change the value to change the track played."
-			)
-		),
-		"text" => "Called each frame when the game decides which music track to play."
-	)
-	*/
 );
 
 ?>
