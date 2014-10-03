@@ -16,7 +16,7 @@ function genHookSnippet($hook, $definition) {
 	foreach ($hArgs as $arg) {
 		if ($first) $first = false;
 		else $s .= ", ";
-		$s .= $arg["type"]." ".$arg["name"];
+		$s .= htmlentities($arg["type"])." ".$arg["name"];
 	}
 	$s .= ")";
 
@@ -24,7 +24,7 @@ function genHookSnippet($hook, $definition) {
 		$s .= ";";
 	} else {
 		$s .= " {";
-		if ($hReturnDefault != "") $s .= " ".$hReturnDefault;
+		if ($hReturnDefault != "") $s .= " return ".$hReturnDefault.";";
 		$s .= " }";
 	}
 	
@@ -36,17 +36,21 @@ function echoHook($hook) {
 		echo("<td style=\"padding-top: 12px; padding-bottom: 8px;\">");
 			echo("<code style=\"font-size: 18px;\">".$hook["hook"]."</code>");
 			echo("<div class=\"propertyButtonBlock btn-group\">");
-				echo("<button type=\"button\" class=\"myButtonDropdown btn btn-default btn-xs\"><span class=\"caret\"></span></button>");
+				echo("<button type=\"button\" class=\"myButtonDropdown btn btn-default\"><span class=\"caret\"></span></button>");
 			echo("</div>");
 			echo("<div class=\"myPropertyInner\">".$hook["text"]."</div>");
 
-			echo("<div class=\"myDropdownTarget\">");
-				echo("<div style=\"margin-bottom: 12px;\"><code>".genHookSnippet($hook, true)."</code></div>");
+			echo("<div class=\"myDropdownTarget myCopy\">");
+				echo("<div style=\"margin-bottom: 12px; clear: both;\">
+					<button type=\"button\" class=\"myCopyButton btn btn-default btn-sm\" style=\"float: left;\">Copy</button>
+					<div style=\"float: left; position: relative; z-index: -1; margin-left: -4px; margin-top: 4px;\"><code class=\"myCopyText\" style=\"padding: 7px 6px 6px 10px;\">".genHookSnippet($hook, false)."</code></div>
+				</div>");
 
 				if (array_key_exists("args", $hook)) {
-					echo("<table class=\"table table-condensed\" style=\"margin-top: -12px; margin-bottom: 8px;\">");
+					echo("<table class=\"table table-condensed\" style=\"margin-bottom: 8px;\">");
 						echo("<thead>
 							<tr style=\"font-weight: bold;\">
+								<td>Type</td>
 								<td>Name</td>
 								<td>Info</td>
 							</tr>
@@ -54,6 +58,7 @@ function echoHook($hook) {
 						echo("<tbody>");
 						foreach ($hook["args"] as $arg) {
 							echo("<tr>");
+								echo("<td><code>".htmlentities($arg["type"])."</code></td>");
 								echo("<td><code>".$arg["name"]."</code></td>");
 								echo("<td>".$arg["text"]."</td>");
 							echo("</tr>");
@@ -65,9 +70,9 @@ function echoHook($hook) {
 				if (array_key_exists("return", $hook)) {
 					$hReturn = $hook["return"];
 					if ($hReturn["type"] != "void") {
-						echo("<table class=\"table table-condensed\" style=\"margin-top: -12px; margin-bottom: 8px;\">");
+						echo("<table class=\"table table-condensed\" style=\"margin-bottom: 8px;\">");
 							echo("<tbody><tr>");
-								echo("<td><span style=\"font-weight: bold;\">Returns</span> (<code>".$hReturn["type"]."</code>)</td>");
+								echo("<td><span style=\"font-weight: bold;\">Returns: </span> <code>".$hReturn["type"]."</code></td>");
 								echo("<td>".$hReturn["text"]."</td>");
 							echo("</tr></tbody>");
 						echo("</table>");
@@ -177,6 +182,7 @@ foreach ($GLOBALS["hooks"] as $hook) {
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="bootstrap.min.js"></script>
 		<script src="docs.min.js"></script>
+		<script src="ZeroClipboard.min.js"></script>
 		
 		<script>
 			$(document).ready(function(){
@@ -187,7 +193,18 @@ foreach ($GLOBALS["hooks"] as $hook) {
 						$(this1).toggleClass("dropdown dropup");
 					});
 				});
+
+				$(".myCopy").each(function(id){
+					var this1 = this;
+					var client = new ZeroClipboard($(this).find(".myCopyButton"));
+					client.on("copy", function (event){
+						var clipboard = event.clipboardData;
+						clipboard.setData("text/plain", $(this1).find(".myCopyText").text());
+					});
+				});
 			});
+
+			var zc = new ZeroClipboard(document.getElementById("copy-button"));
 		</script>
 	</body>
 </html>
