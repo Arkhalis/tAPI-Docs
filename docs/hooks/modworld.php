@@ -1,98 +1,136 @@
 <?php
 
-$GLOBALS["propsInfo"] = array(
-	"header" => "ModInfo",
-	"info" => "Main mod configuration file. Required by every mod.",
-	"tags" => array(
-		array(
-			"tag" => "internal",
-			"name" => "Internal"
-		),
-		array(
-			"tag" => "info",
-			"name" => "Informative"
-		)
-	)
+$GLOBALS["hooksInfo"] = array(
+	"header" => "ModWorld"
 );
 
-$GLOBALS["props"] = array(
+$GLOBALS["hooks"] = array(
 	array(
-		"tags" => array("internal"),
-		"name" => "internalName",
-		"type" => "string",
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"drop" => "
-			<div>This property has to be unique between all mods.</div>
-			<div class=\"bs-callout bs-callout-warning\">
-				Don't use any names that might be used in other namespaces, for example:<br />
-				<ul><li>Terraria</li><li>TAPI</li><li>LitJson</li><li>System</li></ul>
-			</div>
-		"
+		"hook" => "Initialize",
+		"text" => "Called before the game goes into the gameplay mode."
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "displayName",
-		"type" => "string",
-		"text" => "The name visible in the mods menu."
+		"hook" => "Save",
+		"args" => array(
+			array(
+				"type" => "BinBuffer", "name" => "bb",
+				"text" => "Binary buffer to write mod data to."
+			)
+		),
+		"text" => "Called when the world is being saved."
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "author",
-		"type" => "string",
-		"text" => "Mod author."
+		"hook" => "Load",
+		"args" => array(
+			array(
+				"type" => "BinBuffer", "name" => "bb",
+				"text" => "Binary buffer to read mod data from."
+			)
+		),
+		"text" => "Called when the world is being loaded."
+	),
+
+	array(
+		"hook" => "PostUpdate",
+		"text" => "Called every frame when the world updates (in singleplayer and on the server)."
+	),
+
+	array(
+		"hook" => "CheckChristmas",
+		"return" => array("type" => "bool?", "default" => "null", "text" => "Whether it should be Christmas in-game (return <code>null</code> to leave the default)."),
+		"text" => "Called when the game rechecks the Christmas status."
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "version",
-		"type" => array("string","int[1-4]"),
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"default" => "<code>[1,0,0,0]</code>",
-		"drop" => "
-			<div class=\"bs-example\">
-				<code>\"version\": \"r1\"</code><br />
-				<code>\"version\": [1,0,0,0]</code>
-			</div>
-		"
+		"hook" => "CheckHalloween",
+		"return" => array("type" => "bool?", "default" => "null", "text" => "Whether it should be Halloween in-game (return <code>null</code> to leave the default)."),
+		"text" => "Called when the game rechecks the Halloween status."
+	),
+
+	array(
+		"hook" => "WorldGenPostInit",
+		"text" => "Called after the world generation process finishes initializing."
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "includePDB",
-		"type" => "bool",
-		"text" => "Whether the mod packer should create a debug PDB file.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>The PDB file allows tAPI to display line numbers on which errors happen.</div>
-		"
+		"hook" => "WorldGenModifyTaskList",
+		"args" => array(
+			array(
+				"type" => "List<WorldGenTask>", "name" => "list",
+				"text" => "List of all pending world generation tasks."
+			)
+		),
+		"text" => "Called after queuing world generation tasks, can be used to modify which tasks should be done and/or add custom tasks."
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "warnOnReload",
-		"type" => "bool",
-		"text" => "Determines whether it's unsafe to reload the mod and the game should be restarted instead.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>Some mods that allow to be used as APIs can cause problems when reloaded. Set this property to mark such mods.</div>
-		"
+		"hook" => "WorldGenPostGen",
+		"text" => "Called after the whole world generation process."
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "modReferences",
-		"type" => "string[?]",
-		"text" => "List of all mod dependencies.",
-		"drop" => "
-			<div class=\"myDropdownDiv\">All the names are mod <code>internalName</code> properties.</div>
-		"
+		"hook" => "WorldGenModifyHardmodeTaskList",
+		"args" => array(
+			array(
+				"type" => "List<WorldGenTask>", "name" => "list",
+				"text" => "List of all pending world generation tasks."
+			)
+		),
+		"text" => "Called after queuing world generation tasks when switching the world to hardmode, can be used to modify which tasks should be done and/or add custom tasks."
+	),
+
+	array(
+		"hook" => "PreHitWire",
+		"args" => array(
+			array(
+				"type" => "int", "name" => "x",
+				"text" => "Tile X position."
+			),
+			array(
+				"type" => "int", "name" => "y",
+				"text" => "Tile Y position."
+			),
+			array(
+				"type" => "int", "name" => "wireType",
+				"text" => "Type of the wire being triggered (1/2/3)"
+			)
+		),
+		"return" => array("type" => "bool", "default" => "true", "text" => "Whether the wire current should go further."),
+		"text" => "Called when a wire current goes through a tile.",
+		"warning" => true //not sure about the 'return' and 'text' and 'wireType' (if it's 1/2/3 really)
+	),
+
+	array(
+		"hook" => "PlayerConnected",
+		"args" => array(
+			array(
+				"type" => "int", "name" => "index",
+				"text" => "Index of the connecting player in the Main.player array."
+			)
+		),
+		"text" => "Called when a player joins the server.",
+		"warning" => true //not sure if it's called on both the server and client
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "dllReferences",
-		"type" => "string[?]",
-		"text" => "List of all DLL dependencies.",
-		"drop" => "
-			
-		",
-		"warning" => true
+		"hook" => "PlayerDisconnected",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "Player instance that got disconnected."
+			)
+		),
+		"text" => "Called when a player leaves the server.",
+		"warning" => true //not sure if it's called on both the server and client
 	)
+
+	/*
+	array(
+		"hook" => "Initialize",
+		"args" => array(
+			array(
+				"type" => "ref string", "name" => "current",
+				"text" => "Current music track name to play. Change the value to change the track played."
+			)
+		),
+		"text" => "Called each frame when the game decides which music track to play."
+	)
+	*/
 );
 
 ?>
