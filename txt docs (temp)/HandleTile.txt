@@ -62,3 +62,6 @@
 "mapHoverText"
 "drop"
 "tileMerge"
+"treasure"
+"danger"
+"grass"

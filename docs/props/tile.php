@@ -484,7 +484,27 @@ $GLOBALS["props"] = array(
 		"text" => "",
 		"default" => ""
 	),
-
+	array(
+		"tags" => array("temp"),
+		"name" => "treasure",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "danger",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "grass",
+		"type" => "",
+		"text" => "",
+		"default" => ""
+	),
 );
 
 ?>
