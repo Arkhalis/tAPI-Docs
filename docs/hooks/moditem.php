@@ -1,98 +1,591 @@
 <?php
 
-$GLOBALS["propsInfo"] = array(
-	"header" => "ModInfo",
-	"info" => "Main mod configuration file. Required by every mod.",
-	"tags" => array(
-		array(
-			"tag" => "internal",
-			"name" => "Internal"
-		),
-		array(
-			"tag" => "info",
-			"name" => "Informative"
-		)
-	)
+$GLOBALS["hooksInfo"] = array(
+	"header" => "ModBase"
 );
 
-$GLOBALS["props"] = array(
+$GLOBALS["hooks"] = array(
 	array(
-		"tags" => array("internal"),
-		"name" => "internalName",
-		"type" => "string",
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"drop" => "
-			<div>This property has to be unique between all mods.</div>
-			<div class=\"bs-callout bs-callout-warning\">
-				Don't use any names that might be used in other namespaces, for example:<br />
-				<ul><li>Terraria</li><li>TAPI</li><li>LitJson</li><li>System</li></ul>
-			</div>
-		"
-	),
-	array(
-		"tags" => array("info"),
-		"name" => "displayName",
-		"type" => "string",
-		"text" => "The name visible in the mods menu."
-	),
-	array(
-		"tags" => array("info"),
-		"name" => "author",
-		"type" => "string",
-		"text" => "Mod author."
-	),
-	array(
-		"tags" => array("info"),
-		"name" => "version",
-		"type" => array("string","int[1-4]"),
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"default" => "<code>[1,0,0,0]</code>",
-		"drop" => "
-			<div class=\"bs-example\">
-				<code>\"version\": \"r1\"</code><br />
-				<code>\"version\": [1,0,0,0]</code>
-			</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "includePDB",
-		"type" => "bool",
-		"text" => "Whether the mod packer should create a debug PDB file.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>The PDB file allows tAPI to display line numbers on which errors happen.</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "warnOnReload",
-		"type" => "bool",
-		"text" => "Determines whether it's unsafe to reload the mod and the game should be restarted instead.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>Some mods that allow to be used as APIs can cause problems when reloaded. Set this property to mark such mods.</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "modReferences",
-		"type" => "string[?]",
-		"text" => "List of all mod dependencies.",
-		"drop" => "
-			<div class=\"myDropdownDiv\">All the names are mod <code>internalName</code> properties.</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "dllReferences",
-		"type" => "string[?]",
-		"text" => "List of all DLL dependencies.",
-		"drop" => "
+		"hook" => "OnUpdate",
+		"args" => array(
+			array(
+				"type" => "ref float", "name" => "gravity",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref float", "name" => "maxVelocity",
+				"text" => "needDesc"
+			)
 			
-		",
-		"warning" => true
+		),
+		"text" => "Called on items in world, useful for making soul-like items."
+	),
+	array(
+		"hook" => "PreWorldDraw",
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "PostWorldDraw",
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "CanPickup",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "bool", "name" => "vacuum",
+				"text" => "When true, the item is being vaccumed towards the player and not actually being picked up."
+			)
+		),
+		"text" => "Called when an item comes in range of being picked up, return false to not pick up."
+	),
+	array(
+		"hook" => "OnPickup",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			)
+		),
+		"return" => array("type" => "int", "text" => "The amount of fucks given."),
+		"text" => "Called when an item is picked up by the player. Return false to cause the item to dissapear (like hearts and mana stars)"
+	),
+	array(
+		"hook" => "UseItem",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			)
+		),
+		"text" => "Called when an item is used by the player"
+	),
+	array(
+		"hook" => "UseItemEffects",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Rectangle", "name" => "rect",
+				"text" => "needDesc"
+			)
+		),
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "CanUse",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			)
+		),
+		"return" => array("type" => "bool", "text" => "if a fuck is given."),
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "ConsumeItem",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			)
+		),
+		"return" => array("type" => "bool", "text" => "if a fuck is given."),
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "ConsumeAmmo",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			)
+		),
+		"return" => array("type" => "bool", "text" => "if a fuck is given."),
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "ConsumeBait",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			)
+		),
+		"return" => array("type" => "bool", "text" => "if a fuck is given."),
+		"text" => "needDesc"
+	),
+	/*array(
+		"hook" => "UseStyle",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "HoldStyle",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "SetUseFrame",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "SetHoldFrame",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "SetUseHitbox",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "PreItemCheck",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "PostItemCheck",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "OnBuy",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "OnCraft",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "OnAffixName",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "PreReforge",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "PostReforge",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "PreShoot",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "CanEquip",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "OnEquip",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "OnUnEquip",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "Effects",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "VanityEffects",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "ArmorSetBonus",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "VanitySetBonus",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "IsArmorSet",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "DyeHair",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "DamagePlayer",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "DealtPlayer",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "DamagePVP",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "DealtPVP",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "DamageNPC",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "DealtNPC",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "CanHitPlayer",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "CanHitPVP",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	array(
+		"hook" => "CanHitNPC",
+		"args" => array(
+			array(
+				"type" => "", "name" => "",
+				"text" => ""
+			)
+		),
+		"text" => ""
+	),
+	*/
+	array(
+		"hook" => "OnHitPVP",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "owner",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Player", "name" => "victim",
+				"text" => "needDesc"
+			)
+		),
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "OnHitNPC",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "owner",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "NPC", "name" => "victim",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Vector2", "name" => "hitLocation",
+				"text" => "needDesc"
+			)
+		),
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "GetFishingLevel",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Item", "name" => "bait",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref int", "name" => "fishingLevel"
+				"text" => "needDesc"
+			)
+		),
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "OnFishSelected",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Item", "name" => "fishingRod",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Item", "name" => "bait",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "liquidType",
+				"text" => "needDesc - liquidType: 0-2, water, lava, honey"
+			),
+			array(
+				"type" => "int", "name" => "poolCount",
+				"text" => "needDesc - poolCount = the amount of water tiles in the pool"
+			),
+			array(
+				"type" => "int", "name" => "worldLayer",
+				"text" => "needDesc - worldLayer: 0-4, sky, surface, dirtlayer, rocklayer, hell"
+			),
+			array(
+				"type" => "int", "name" => "questFish",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref int", "name" => "caughtType",
+				"text" => "needDesc - if caughtType is -1, it will bobber but not spawn any item when brought back, allowing for unconventional catches"
+			)
+		),
+		"text" => "needDesc - "
+	),
+	array(
+		"hook" => "ModifyDrawLayerList",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "List<PlayerLayer>", "name" => "list",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "List<PlayerLayer>", "name" => "list",
+				"text" => "needDesc"
+			),
+		),
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "ModifyDrawLayerHeadList",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "List<PlayerLayer>", "name" => "list",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "List<PlayerLayer>", "name" => "list",
+				"text" => "needDesc"
+			),
+		),
+		"text" => "needDesc"
+	),
+	array(
+		"hook" => "ModifyDrawColor",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "owner",
+				"text" => "see zetaPrime for explanation"
+			),
+			array(
+				"type" => "Color", "name" => "color",
+				"text" => "see zetaPrime for explanation"
+			)
+		),
+		"return" => array("type" => "Color", "text" => "The color of fucks given."),
+		"text" => "see zetaPrime for explanation"
+	),
+	array(
+		"hook" => "ModifyToolTip",
+		"args" => array(
+			array(
+				"type" => "Player", "name" => "owner",
+				"text" => "see zetaPrime for explanation"
+			),
+			array(
+				"type" => "List<string>", "name" => "list",
+				"text" => "see zetaPrime for explanation"
+			)
+		),
+		"text" => "see zetaPrime for explanation"
 	)
+
 );
 
 ?>
