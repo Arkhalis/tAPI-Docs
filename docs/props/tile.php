@@ -504,7 +504,7 @@ $GLOBALS["props"] = array(
 		"type" => "",
 		"text" => "",
 		"default" => ""
-	),
+	)
 );
 
 ?>
