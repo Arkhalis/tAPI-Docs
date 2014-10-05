@@ -22,6 +22,11 @@ $GLOBALS["hooks"] = array(
 	),
 	array(
 		"hook" => "PreWorldDraw",
+		array(
+				"type" => "SpriteBatch", "name" => "sb",
+				"text" => "needDesc"
+			)
+		"return" => array("type" => "bool", "text" => "needDesc"),
 		"text" => "needDesc"
 	),
 	array(
@@ -40,7 +45,8 @@ $GLOBALS["hooks"] = array(
 				"text" => "When true, the item is being vaccumed towards the player and not actually being picked up."
 			)
 		),
-		"text" => "Called when an item comes in range of being picked up, return false to not pick up."
+		"return" => array("type" => "bool", "text" => "needDesc - Return false to not pick up"),
+		"text" => "Called when an item comes in range of being picked up"
 	),
 	array(
 		"hook" => "OnPickup",
@@ -50,8 +56,8 @@ $GLOBALS["hooks"] = array(
 				"text" => "needDesc"
 			)
 		),
-		"return" => array("type" => "int", "text" => "The amount of fucks given."),
-		"text" => "Called when an item is picked up by the player. Return false to cause the item to dissapear (like hearts and mana stars)"
+		"return" => array("type" => "bool", "text" => "needDesc - Return false to cause the item to dissapear (like hearts and mana stars)"),
+		"text" => "needDesc - Called when an item is picked up by the player"
 	),
 	array(
 		"hook" => "UseItem",
@@ -85,7 +91,7 @@ $GLOBALS["hooks"] = array(
 				"text" => "needDesc"
 			)
 		),
-		"return" => array("type" => "bool", "text" => "if a fuck is given."),
+		"return" => array("type" => "bool", "text" => "needDesc"),
 		"text" => "needDesc"
 	),
 	array(
@@ -96,7 +102,7 @@ $GLOBALS["hooks"] = array(
 				"text" => "needDesc"
 			)
 		),
-		"return" => array("type" => "bool", "text" => "if a fuck is given."),
+		"return" => array("type" => "bool", "text" => "needDesc"),
 		"text" => "needDesc"
 	),
 	array(
@@ -107,7 +113,7 @@ $GLOBALS["hooks"] = array(
 				"text" => "needDesc"
 			)
 		),
-		"return" => array("type" => "bool", "text" => "if a fuck is given."),
+		"return" => array("type" => "bool", "text" => "needDesc"),
 		"text" => "needDesc"
 	),
 	array(
@@ -118,320 +124,506 @@ $GLOBALS["hooks"] = array(
 				"text" => "needDesc"
 			)
 		),
-		"return" => array("type" => "bool", "text" => "if a fuck is given."),
+		"return" => array("type" => "bool", "text" => "needDesc"),
 		"text" => "needDesc"
 	),
-	/*array(
+	array(
 		"hook" => "UseStyle",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "HoldStyle",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "SetUseFrame",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "SetHoldFrame",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("bool" => "bool", "text" => "needDesc - return true to override the frame and false to allow normal behavior (ie hook frames)."),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "SetUseHitbox",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Rectangle", "name" => "rect",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("Rectangle" => "bool", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "PreItemCheck",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc - Called before item check executes"
 	),
 	array(
 		"hook" => "PostItemCheck",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc - Called after item check executes"
 	),
 	array(
 		"hook" => "OnBuy",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Chest", "name" => "shop",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "slot",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Item", "name" => "item",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "OnCraft",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Recipe", "name" => "recipe",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "OnAffixName",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "string", "name" => "currentName",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "string", "name" => "oldName",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("string" => "bool", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "PreReforge",
-		"args" => array(
-			array(
-				"type" => "", "name" => "",
-				"text" => ""
-			)
-		),
-		"text" => ""
+		"return" => array("type" => "bool", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "PostReforge",
-		"args" => array(
-			array(
-				"type" => "", "name" => "",
-				"text" => ""
-			)
-		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "PreShoot",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Vector2", "name" => "position",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Vector2", "name" => "velocity",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "projType",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "damage",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "float", "name" => "knockback",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("type" => "bool", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "CanEquip",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "slot",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("type" => "bool", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "OnEquip",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "slot",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "OnUnEquip",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "slot",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "Effects",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "VanityEffects",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "ArmorSetBonus",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "Called when a full armor set is worn"
 	),
 	array(
 		"hook" => "VanitySetBonus",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "Called when a full armor set is visually worn"
 	),
 	array(
 		"hook" => "IsArmorSet",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "bool", "name" => "vanity",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("type" => "bool", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "DyeHair",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "player",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Color", "name" => "dyeColor",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref bool", "name" => "glows",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("type" => "Color", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "DamagePlayer",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "NPC", "name" => "attacker",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Player", "name" => "target",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "hitDir",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref int", "name" => "damage",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref bool", "name" => "crit",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref float", "name" => "critMult",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "DealtPlayer",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "NPC", "name" => "attacker",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Player", "name" => "target",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "hitDir",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "dmgDealt",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "bool", "name" => "crit",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "DamagePVP",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "owner",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Player", "name" => "victim",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "hitDir",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref int", "name" => "damage",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref bool", "name" => "crit",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref float", "name" => "critMult",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "DealtPVP",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "owner",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Player", "name" => "victim",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "hitDir",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "dmgDealt",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "bool", "name" => "crit",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "DamageNPC",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "owner",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "NPC", "name" => "victim",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "hitDir",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref int", "name" => "damage",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref float", "name" => "knockback",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref bool", "name" => "crit",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "ref float", "name" => "critMult",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "DealtNPC",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "owner",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "NPC", "name" => "victim",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "hitDir",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "int", "name" => "dmgDealt",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "float", "name" => "knockback",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "bool", "name" => "crit",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "CanHitPlayer",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "NPC", "name" => "attacker",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Player", "name" => "target",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("type" => "bool?", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "CanHitPVP",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "owner",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "Player", "name" => "victim",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("type" => "bool?", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "CanHitNPC",
 		"args" => array(
 			array(
-				"type" => "", "name" => "",
-				"text" => ""
+				"type" => "Player", "name" => "owner",
+				"text" => "needDesc"
+			),
+			array(
+				"type" => "NPC", "name" => "victim",
+				"text" => "needDesc"
 			)
 		),
-		"text" => ""
+		"return" => array("type" => "bool?", "text" => "needDesc"),
+		"text" => "needDesc"
 	),
-	*/
 	array(
 		"hook" => "OnHitPVP",
 		"args" => array(
@@ -518,7 +710,7 @@ $GLOBALS["hooks"] = array(
 				"text" => "needDesc - if caughtType is -1, it will bobber but not spawn any item when brought back, allowing for unconventional catches"
 			)
 		),
-		"text" => "needDesc - "
+		"text" => "needDesc"
 	),
 	array(
 		"hook" => "ModifyDrawLayerList",
@@ -568,7 +760,7 @@ $GLOBALS["hooks"] = array(
 				"text" => "see zetaPrime for explanation"
 			)
 		),
-		"return" => array("type" => "Color", "text" => "The color of fucks given."),
+		"return" => array("type" => "Color", "text" => "needDesc"),
 		"text" => "see zetaPrime for explanation"
 	),
 	array(
