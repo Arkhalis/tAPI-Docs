@@ -182,6 +182,18 @@ $GLOBALS["props"] = array(
 		"text" => "A string[] of preset conditions used to determine of a tile can be placed or stay in place.",
 		"default" => "<code>placeTouchingSolid</code> is the tile is 1x1, <code>flatGroundSolid</code> if not.",
 		"drop" => "
+<<<<<<< HEAD
+			<div class=\"alert alert-info\">Note: A string with 'Solid' at the end only allows placement if every tile it checks has <code>solid</code> as true.<br>
+			The strings accepted as placement conditions are:<br>
+			<dl>
+			<dt><code>air</code></dt><dd><b>-</b> can be placed anywhere, always.</dd>
+			<dt><code>wall</code></dt><dd><b>-</b> can be placed if the tile has walls behind all of it.</dd>
+			<dt><code>placeTouching</code> or <code>placeTouchingSolid</code></dt><dd><b>-</b> can be placed if the tile has at least one tile or wall touching it.</dd>
+			<dt><code>side</code></dt><dd><b>-</b> can be placed if the tile has tiles all along one of it's sides.</dd>
+			<dt><code>flatGround</code> or <code>flatGroundSolid</code></dt><dd><b>-</b> can be placed if the tile has tiles all along it's bottom side.</dd>
+			<dt><code>flatCeiling</code> or <code>flatCeilingSolid</code></dt><dd><b>-</b> can be placed if the tile has tiles all along it's top side.</dd>
+			</dl>
+=======
 			<div class=\"alert alert-info\">Note: A string with 'Solid' at the end only allows placement if every tile it checks has <code>solid</code> as true.
 			The strings accepted as placement conditions are:
 			<code>air</code> - can be placed anywhere, always.
@@ -190,6 +202,7 @@ $GLOBALS["props"] = array(
 			<code>side</code> - can be placed if the tile has tiles all along one of it's sides.	
 			<code>flatGround</code> or <code>flatGroundSolid</code> - can be placed if the tile has tiles all along it's bottom side.
 			<code>flatCeiling</code> or <code>flatCeilingSolid</code> - can be placed if the tile has tiles all along it's top side.		
+>>>>>>> origin/master
 			</div>
 		"
 	),
