@@ -29,7 +29,7 @@ $GLOBALS["propsInfo"] = array(
 			"name" => "Gameplay"
 		),
 		array(
-			"tag" => "temp"
+			"tag" => "temp",
 			"name" => "Temporary"
 		)
 	)
@@ -180,16 +180,16 @@ $GLOBALS["props"] = array(
 		"name" => "placementConditions",
 		"type" => "string[]",
 		"text" => "A string[] of preset conditions used to determine of a tile can be placed or stay in place.",
-		"default" => "[ "placeTouchingSolid" ] is the tile is 1x1, <code>[ "flatGroundSolid" ]</code> if not.",
+		"default" => "<code>placeTouchingSolid</code> is the tile is 1x1, <code>flatGroundSolid</code> if not.",
 		"drop" => "
 			<div class=\"alert alert-info\">Note: A string with 'Solid' at the end only allows placement if every tile it checks has <code>solid</code> as true.
 			The strings accepted as placement conditions are:
-			<code>"air"</code> - can be placed anywhere, always.
-			<code>"wall"</code> - can be placed if the tile has walls behind all of it.
-			<code>"placeTouching"</code> or <code>"placeTouchingSolid"</code> - can be placed if the tile has at least one tile or wall touching it.
-			<code>"side"</code> - can be placed if the tile has tiles all along one of it's sides.	
-			<code>"flatGround"</code> or <code>"flatGroundSolid"</code> - can be placed if the tile has tiles all along it's bottom side.
-			<code>"flatCeiling"</code> or <code>"flatCeilingSolid"</code> - can be placed if the tile has tiles all along it's top side.		
+			<code>air</code> - can be placed anywhere, always.
+			<code>wall</code> - can be placed if the tile has walls behind all of it.
+			<code>placeTouching</code> or <code>placeTouchingSolid"</code> - can be placed if the tile has at least one tile or wall touching it.
+			<code>side</code> - can be placed if the tile has tiles all along one of it's sides.	
+			<code>flatGround</code> or <code>flatGroundSolid</code> - can be placed if the tile has tiles all along it's bottom side.
+			<code>flatCeiling</code> or <code>flatCeilingSolid</code> - can be placed if the tile has tiles all along it's top side.		
 			</div>
 		"
 	),
@@ -526,10 +526,10 @@ $GLOBALS["props"] = array(
 		"drop" => "
 			<div class=\"alert alert-info\">There are some special behaviors:
 			
-			<code>"#NormalTiles"</code> - Causes the tile to merge with every tile in the game that is not frameImportant and is 1x1 in size.
-			<code>"#Ores"</code> - Causes the tile to merge will all vanilla ores. This is usually used with the behavior below to exclude the vanilla ores from the above.
+			<code>#NormalTiles</code> - Causes the tile to merge with every tile in the game that is not frameImportant and is 1x1 in size.
+			<code>#Ores</code> - Causes the tile to merge will all vanilla ores. This is usually used with the behavior below to exclude the vanilla ores from the above.
 			
-			Having a ! before an entry (such as <code>"!#Ores"</code>) means the opposite - do NOT merge with this tile. 
+			Having a ! before an entry (such as <code>!#Ores</code>) means the opposite - do NOT merge with this tile. 
 			This is used to exclude tiles from the above two if used.</div>
 		"
 	),
