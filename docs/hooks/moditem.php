@@ -22,10 +22,12 @@ $GLOBALS["hooks"] = array(
 	),
 	array(
 		"hook" => "PreWorldDraw",
-		array(
+		"args" => array(
+			array(
 				"type" => "SpriteBatch", "name" => "sb",
 				"text" => "needDesc"
 			)
+		),
 		"return" => array("type" => "bool", "text" => "needDesc"),
 		"text" => "needDesc"
 	),
@@ -668,7 +670,7 @@ $GLOBALS["hooks"] = array(
 				"text" => "needDesc"
 			),
 			array(
-				"type" => "ref int", "name" => "fishingLevel"
+				"type" => "ref int", "name" => "fishingLevel",
 				"text" => "needDesc"
 			)
 		),
