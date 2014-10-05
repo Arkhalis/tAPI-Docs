@@ -186,7 +186,7 @@ $GLOBALS["props"] = array(
 			The strings accepted as placement conditions are:
 			<code>air</code> - can be placed anywhere, always.
 			<code>wall</code> - can be placed if the tile has walls behind all of it.
-			<code>placeTouching</code> or <code>placeTouchingSolid"</code> - can be placed if the tile has at least one tile or wall touching it.
+			<code>placeTouching</code> or <code>placeTouchingSolid</code> - can be placed if the tile has at least one tile or wall touching it.
 			<code>side</code> - can be placed if the tile has tiles all along one of it's sides.	
 			<code>flatGround</code> or <code>flatGroundSolid</code> - can be placed if the tile has tiles all along it's bottom side.
 			<code>flatCeiling</code> or <code>flatCeilingSolid</code> - can be placed if the tile has tiles all along it's top side.		
