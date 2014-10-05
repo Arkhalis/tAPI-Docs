@@ -40,470 +40,519 @@ $GLOBALS["props"] = array(
 		"tags" => array("temp"),
 		"name" => "name",
 		"type" => "string",
-		"text" => "",
-		"default" => ""
+		"text" => "The unique tile name in the mod",
+		"default" => "The tile's JSON file name without extension",
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "texture",
 		"type" => "string",
-		"text" => "",
-		"default" => ""
+		"text" => "The texture path for the tile.",
+		"default" => "The tile's JSON path, without extension"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "code",
 		"type" => "string",
-		"text" => "",
-		"default" => ""
+		"text" => "Full type name for the per-tile-type class to be used for this tile.",
+		"default" => "<code>{internalName}.Tiles.{filename}</code>"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "instanceCode",
 		"type" => "string",
-		"text" => "",
-		"default" => ""
+		"text" => "Full type name for the per-tile-instance class to be used for this tile.",
+		"default" => "No default, you must specify this in your JSON.",
+		"drop" => "
+			<div class=\"alert alert-info\">The difference between this and <code>code</code> is this is a new class for every tile placed, while 
+			code is one class for the entire tile type.</div>
+		"		
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "width",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The amount of tiles on the X axis this tile takes up.",
+		"drop" => "
+			<div class=\"alert alert-info\">For example, a chest has a width of 2.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "height",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The amount of tiles on the Y axis this tile takes up.",
+		"drop" => "
+			<div class=\"alert alert-info\">For example, a chest has a height of 2.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "size",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int[2]",
+		"text" => "The amount of tiles on the X and Y axis this tile takes up.",
+		"drop" => "
+			<div class=\"alert alert-info\">For example, a chest has a size of <code>[2, 2]</code>.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "displayName",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "string",
+		"text" => "The tile's displayed name. (Map, etc.)"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "frameWidth",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The tile's per-tile frame width.",
+		"default" => "16"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "frameHeight",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The tile's per-tile frame height.",
+		"default" => "16"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "drawOffsetY",
-		"type" => "",
-		"text" => "",
-		"default" => ""
-	),
-	array(
-		"tags" => array("temp"),
-		"name" => "sheetColumns",
-		"type" => "",
-		"text" => "",
-		"default" => ""
-	),
-	array(
-		"tags" => array("temp"),
-		"name" => "sheetRows",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The draw offset of the tile on the Y axis. (Negative moves up, Positive moves down)",
+		"default" => "0",
+		"drop" => "
+			<div class=\"alert alert-info\">Can be used to make tiles embedded in the tile below or above it.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "solid",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not a tile has collision.",
+		"default" => "true"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "solidTop",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not the player can walk on this tile if it's nonsolid. (such as tables, bookcases, etc.)",
+		"default" => "false",
+		"drop" => "
+			<div class=\"alert alert-info\">Note: Having this false, but <code>solid</code> true, does not result in a mostly solid tile with a nonsolid top.
+			<code>solid</code> accounts for the entire tile. To make a table-like tile, have <code>solid</code> be false and <code>solidTop</code> be true.</div>
+		"	
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "frameImportant",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not to save the tile's frames.",
+		"default" => "false",
+		"drop" => "
+			<div class=\"alert alert-info\">This should be true on any tile that is not 1x1 or a tile that has anything frame-dependent.</div>
+		"		
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "placementFrameX",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The specific X frame of the tile to use when it is placed.",
+		"default" => "0",
+		"drop" => "
+			<div class=\"alert alert-info\">Note: This is only used if you have <code>frameImportant</code> set to true.
+			This is the frame count, not actual pixels.</div>
+		"	
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "placementFrameY",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The specific Y frame of the tile to use when it is placed.",
+		"default" => "0",
+		"drop" => "
+			<div class=\"alert alert-info\">Note: This is only used if you have <code>frameImportant</code> set to true.
+			This is the frame count, not actual pixels.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "placementConditions",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "string[]",
+		"text" => "A string[] of preset conditions used to determine of a tile can be placed or stay in place.",
+		"default" => "[ "placeTouchingSolid" ] is the tile is 1x1, <code>[ "flatGroundSolid" ]</code> if not.",
+		"drop" => "
+			<div class=\"alert alert-info\">Note: A string with 'Solid' at the end only allows placement if every tile it checks has <code>solid</code> as true.
+			The strings accepted as placement conditions are:
+			<code>"air"</code> - can be placed anywhere, always.
+			<code>"wall"</code> - can be placed if the tile has walls behind all of it.
+			<code>"placeTouching"</code> or <code>"placeTouchingSolid"</code> - can be placed if the tile has at least one tile or wall touching it.
+			<code>"side"</code> - can be placed if the tile has tiles all along one of it's sides.	
+			<code>"flatGround"</code> or <code>"flatGroundSolid"</code> - can be placed if the tile has tiles all along it's bottom side.
+			<code>"flatCeiling"</code> or <code>"flatCeilingSolid"</code> - can be placed if the tile has tiles all along it's top side.		
+			</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "placementOrigin",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int[2]",
+		"text" => "The tile within the tile that is considered the placement tile. (The tile the mouse is over when placing)",
+		"default" => "[0, 0]"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "breaksFast",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not a tile breaks immediately when hit.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "breaksByPick",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not a tile breaks from a pickaxe.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "breaksByAxe",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not a tile breaks from an axe.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "breaksByHammer",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not a tile breaks from a hammer.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "breaksByCut",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not a tile breaks when hit by a melee weapon or projectile.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "breaksByWater",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not a tile breaks when submerged in water or honey.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "breaksByLava",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not a tile breaks when submerged in lava.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "minPick",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The minimum pick value required to mine this tile.",
+		"default" => "0"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "minAxe",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The minimum axe value required to mine this tile.",
+		"default" => "0"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "minHammer",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The minimum hammer value required to mine this tile.",
+		"default" => "0"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "ratePick",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "float",
+		"text" => "A multiplier for how fast the tile is mined by a pickaxe.",
+		"default" => "1f"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "rateAxe",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "float",
+		"text" => "A multiplier for how fast the tile is mined by an axe.",
+		"default" => "1f"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "rateHammer",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "float",
+		"text" => "A multiplier for how fast the tile is mined by a hammer.",
+		"default" => "1f"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "table",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered a table. (Used in NPC Housing)",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "chair",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered a chair. (Used in NPC Housing)",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "torch",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered a torch. (Used in NPC Housing)",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "door",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered a door. (Used in NPC Housing)",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "rope",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Causes this tile to have similar behavior to a rope.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "noAttach",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Causes this tile to not be 'attachable' by other tiles.
+		In other words, a tile that needs a placement condition checking this tile will always return false for this tile.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "tileDungeon",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered part of the dungeon.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "blocksLight",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile blocks light from passing through it.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "blocksSun",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile blocks sunlight from passing through it.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "glows",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile glows in the dark. Make this true if this tile uses the hook <code>ModifyLight</code>.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "shines",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile spawns sparkle dust if it is properly lit.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "shineChance",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The chance of the sparkle. (Higher numbers == less chance)",
+		"default" => "0"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "sheetYAligned",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether the tile's spritesheet has frames along the X or Y axis.",
+		"default" => "false",
+		"drop" => "
+			<div class=\"alert alert-info\">This is mainly used for placeStyle as well as animation.</div>
+		"	
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "frame",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The start frame for the tile's animation.",
+		"default" => "0"	
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "frameMax",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The maximum frame of the tile.",
+		"default" => "0",
+		"drop" => "
+			<div class=\"alert alert-info\">If this and <code>frameCounterMax</code> are greater then 0, the tile will animate.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "frameCounter",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The start count for the frame counter of the tile's animation.",
+		"default" => "0"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "frameCounterMax",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The maximum for the frame counter of the tile's animation.",
+		"default" => "0",
+		"drop" => "
+			<div class=\"alert alert-info\">If this and <code>frameMax</code> are greater then 0, the tile will animate.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "brick",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered bricks.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "moss",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered moss.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "stone",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered stone.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "mergeDirt",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should merge with dirt.",
+		"default" => "false",
+		"drop" => "
+			<div class=\"alert alert-info\">DO NOT HAVE THIS TRUE IF <code>tileMerge</code> CONTAINS DIRT IN IT! Having both causes graphical glitches.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "tileSand",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered sand. (does not grant gravity to the tile)",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "tileFlame",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile has a vanilla 'flame texture'. Almost all custom tiles will have this as false.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "alchemyFlower",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile is considered a potion herb. Does nothing except change the default sound the tile makes.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "sound",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The sound ID that this tile uses when it is killed.",
+		"default" => "0",
+		"drop" => "
+			<div class=\"alert alert-info\">This is unused unless <code>soundGroup</code> is above 0.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "soundGroup",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The soundGroup ID that this tile uses when it is killed.",
+		"default" => "0"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "dust",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int",
+		"text" => "The dust ID that this tile uses when it is mined or killed.",
+		"default" => "0"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "mapColor",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int[4]",
+		"text" => "The color the tile uses on the map.",
+		"default" => "None, it is ignored if not specified."
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "mapHoverText",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "string",
+		"text" => "The text used when the tile is hovered over.",
+		"default" => "None, it is ignored if not specified."
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "drop",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int or string",
+		"text" => "The item this tile will drop when killed.",
+		"default" => "0 (nothing)"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "tileMerge",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "int and/or string array",
+		"text" => "Array of tile IDs, names of tiles, or both that this tile merges with.",
+		"default" => "None (merges with nothing except itself)",
+		"drop" => "
+			<div class=\"alert alert-info\">There are some special behaviors:
+			
+			<code>"#NormalTiles"</code> - Causes the tile to merge with every tile in the game that is not frameImportant and is 1x1 in size.
+			<code>"#Ores"</code> - Causes the tile to merge will all vanilla ores. This is usually used with the behavior below to exclude the vanilla ores from the above.
+			
+			Having a ! before an entry (such as <code>"!#Ores"</code>) means the opposite - do NOT merge with this tile. 
+			This is used to exclude tiles from the above two if used.</div>
+		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "treasure",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should glow if the player has Spelunker.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "danger",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not this tile should glow if the player has Dangersense.",
+		"default" => "false"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "grass",
-		"type" => "",
-		"text" => "",
-		"default" => ""
+		"type" => "bool",
+		"text" => "Wether or not the tile should be considered grass frame-wise.",
+		"default" => "false"
 	)
 );
 
