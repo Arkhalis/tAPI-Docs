@@ -27,7 +27,7 @@ $GLOBALS["propsInfo"] = array(
 		array(
 			"tag" => "gplay",
 			"name" => "Gameplay"
-		)
+		),
 		array(
 			"tag" => "temp"
 			"name" => "Temporary"
