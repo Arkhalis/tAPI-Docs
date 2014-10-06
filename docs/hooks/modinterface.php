@@ -112,6 +112,10 @@ $GLOBALS["hooks"] = array(
 				"text" => "SpriteBatch instance used to do all the drawing."
 			),
 			array(
+				"type" => "string", "name" => "context",
+				"text" => "Tooltip context - type of the thing drawing the tooltip, in the format of <code>{modName}:{type}</code>."
+			),
+			array(
 				"type" => "ref string", "name" => "text",
 				"text" => "The text to be drawn."
 			),
@@ -131,6 +135,10 @@ $GLOBALS["hooks"] = array(
 				"text" => "SpriteBatch instance used to do all the drawing."
 			),
 			array(
+				"type" => "string", "name" => "context",
+				"text" => "Tooltip context - type of the thing drawing the tooltip, in the format of <code>{modName}:{type}</code>."
+			),
+			array(
 				"type" => "string", "name" => "text",
 				"text" => "The text to be drawn."
 			),
@@ -140,6 +148,52 @@ $GLOBALS["hooks"] = array(
 			)
 		),
 		"text" => "Called after a basic text tooltip gets drawn."
+	),
+
+	array(
+		"hook" => "PreDrawTooltipItem",
+		"args" => array(
+			array(
+				"type" => "SpriteBatch", "name" => "sb",
+				"text" => "SpriteBatch instance used to do all the drawing."
+			),
+			array(
+				"type" => "Item", "name" => "item",
+				"text" => "The item to for which the tooltip is to be drawn."
+			),
+			array(
+				"type" => "ref string", "name" => "text",
+				"text" => "The tooltip caption to be drawn."
+			),
+			array(
+				"type" => "ref int", "name" => "rare",
+				"text" => "Item rarity color to use when drawing the caption."
+			)
+		),
+		"return" => array("type" => "bool", "default" => "true", "text" => "Whether the item tooltip should be drawn."),
+		"text" => "Called before an item tooltip gets drawn."
+	),
+	array(
+		"hook" => "PostDrawTooltipItem",
+		"args" => array(
+			array(
+				"type" => "SpriteBatch", "name" => "sb",
+				"text" => "SpriteBatch instance used to do all the drawing."
+			),
+			array(
+				"type" => "Item", "name" => "item",
+				"text" => "The item to for which the tooltip is to be drawn."
+			),
+			array(
+				"type" => "string", "name" => "text",
+				"text" => "The tooltip caption to be drawn."
+			),
+			array(
+				"type" => "int", "name" => "rare",
+				"text" => "Item rarity color to use when drawing the caption."
+			)
+		),
+		"text" => "Called after an item tooltip gets drawn."
 	),
 
 	array(
