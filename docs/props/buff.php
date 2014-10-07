@@ -1,97 +1,94 @@
 <?php
 
 $GLOBALS["propsInfo"] = array(
-	"header" => "ModInfo",
-	"info" => "Main mod configuration file. Required by every mod.",
+	"header" => "Buffs",
+	"info" => "Configuration for a buff.",
 	"tags" => array(
 		array(
-			"tag" => "internal",
-			"name" => "Internal"
-		),
-		array(
-			"tag" => "info",
-			"name" => "Informative"
+			"tag" => "temp",
+			"name" => "Temporary"
 		)
 	)
 );
 
 $GLOBALS["props"] = array(
 	array(
-		"tags" => array("internal"),
-		"name" => "internalName",
+		"tags" => array("temp"),
+		"name" => "name",
 		"type" => "string",
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"drop" => "
-			<div>This property has to be unique between all mods.</div>
-			<div class=\"bs-callout bs-callout-warning\">
-				Don't use any names that might be used in other namespaces, for example:<br />
-				<ul><li>Terraria</li><li>TAPI</li><li>LitJson</li><li>System</li></ul>
-			</div>
-		"
+		"text" => "The unique buff name in the mod.",
+		"default" => "The buff's JSON file name without extension"
 	),
 	array(
-		"tags" => array("info"),
+		"tags" => array("temp"),
 		"name" => "displayName",
 		"type" => "string",
-		"text" => "The name visible in the mods menu."
+		"text" => "The buff's displayed name. (Tooltips, etc.)"
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "author",
+		"tags" => array("temp"),
+		"name" => "texture",
 		"type" => "string",
-		"text" => "Mod author."
+		"text" => "The texture path for the buff's icon.",
+		"default" => "The buff's JSON path, without extension"
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "version",
-		"type" => array("string","int[1-4]"),
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"default" => "<code>[1,0,0,0]</code>",
-		"drop" => "
-			<div class=\"bs-example\">
-				<code>\"version\": \"r1\"</code><br />
-				<code>\"version\": [1,0,0,0]</code>
-			</div>
-		"
+		"tags" => array("temp"),
+		"name" => "code",
+		"type" => "string",
+		"text" => "Full type name for the <code>ModBuff</code>-extending class to be used for this buff.",
+		"default" => "<code>{internalName}.Buffs.{filename}</code>"
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "includePDB",
+		"tags" => array("temp"),
+		"name" => "tip",
+		"type" => "string",
+		"text" => "The displayed tooltip for this buff when it is hovered over.",
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "debuff",
 		"type" => "bool",
-		"text" => "Whether the mod packer should create a debug PDB file.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>The PDB file allows tAPI to display line numbers on which errors happen.</div>
-		"
+		"text" => "Wether or not the player can cancel this buff by right clicking it.",
+		"default" => "false (can be canceled)"
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "warnOnReload",
+		"tags" => array("temp"),
+		"name" => "vanityPet",
 		"type" => "bool",
-		"text" => "Determines whether it's unsafe to reload the mod and the game should be restarted instead.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>Some mods that allow to be used as APIs can cause problems when reloaded. Set this property to mark such mods.</div>
-		"
+		"text" => "Wether or not this buff represents a vanity pet. (Baby Hornet, Baby Snowman, etc.)",
+		"default" => "false"
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "lightPet",
+		"type" => "bool",
+		"text" => "Wether or not this buff represents a light pet. (Wisp, etc.)",
+		"default" => "false"
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "enchantment",
+		"type" => "bool",
+		"text" => "Wether or not this buff is a melee enchantment.",
+		"default" => "false"
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "modReferences",
-		"type" => "string[?]",
-		"text" => "List of all mod dependencies.",
-		"drop" => "
-			<div class=\"myDropdownDiv\">All the names are mod <code>internalName</code> properties.</div>
-		"
+		"tags" => array("temp"),
+		"name" => "noTimer",
+		"type" => "bool",
+		"text" => "Wether or not this buff has a timer displayed. (It still ticks down like any other buff)",
+		"default" => "false"	
 	),
 	array(
-		"tags" => array("internal"),
-		"name" => "dllReferences",
-		"type" => "string[?]",
-		"text" => "List of all DLL dependencies.",
+		"tags" => array("temp"),
+		"name" => "noSave",
+		"type" => "bool",
+		"text" => "Wether or not this buff should be saved to the player.",
+		"default" => "false",
 		"drop" => "
-			
-		",
-		"warning" => true
+			<div class=\"alert alert-info\">This should be true for tile-dependent buffs that act like the Campfire buff, Heart Lantern buff, etc.</div>
+		"
 	)
 );
 

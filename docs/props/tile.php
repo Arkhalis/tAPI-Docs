@@ -40,9 +40,15 @@ $GLOBALS["props"] = array(
 		"tags" => array("temp"),
 		"name" => "name",
 		"type" => "string",
-		"text" => "The unique tile name in the mod",
+		"text" => "The unique tile name in the mod.",
 		"default" => "The tile's JSON file name without extension",
 	),
+	array(
+		"tags" => array("temp"),
+		"name" => "displayName",
+		"type" => "string",
+		"text" => "The tile's displayed name. (Map, etc.)"
+	),	
 	array(
 		"tags" => array("temp"),
 		"name" => "texture",
@@ -54,14 +60,14 @@ $GLOBALS["props"] = array(
 		"tags" => array("temp"),
 		"name" => "code",
 		"type" => "string",
-		"text" => "Full type name for the per-tile-type class to be used for this tile.",
+		"text" => "Full type name for the per-tile-type <code>ModTileType</code>-extending class to be used for this tile.",
 		"default" => "<code>{internalName}.Tiles.{filename}</code>"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "instanceCode",
 		"type" => "string",
-		"text" => "Full type name for the per-tile-instance class to be used for this tile.",
+		"text" => "Full type name for the per-tile-instance <code>ModTile</code>-extending class to be used for this tile.",
 		"default" => "No default, you must specify this in your JSON.",
 		"drop" => "
 			<div class=\"alert alert-info\">The difference between this and <code>code</code> is this is a new class for every tile placed, while 
@@ -94,12 +100,6 @@ $GLOBALS["props"] = array(
 		"drop" => "
 			<div class=\"alert alert-info\">For example, a chest has a size of <code>[2, 2]</code>.</div>
 		"
-	),
-	array(
-		"tags" => array("temp"),
-		"name" => "displayName",
-		"type" => "string",
-		"text" => "The tile's displayed name. (Map, etc.)"
 	),
 	array(
 		"tags" => array("temp"),

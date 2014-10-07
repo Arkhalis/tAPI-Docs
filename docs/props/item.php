@@ -65,7 +65,7 @@ $GLOBALS["props"] = array(
 		"name" => "code",
 		"tags" => array("def"),
 		"type" => "string",
-		"text" => "Full type name for the class to be used for this item.",
+		"text" => "Full type name for the <code>ModItem</code>-extending class to be used for this item.",
 		"default" => "<code>{internalName}.Items.{filename}</code>"
 	),
 	array(

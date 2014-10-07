@@ -43,7 +43,7 @@ $GLOBALS["props"] = array(
 		"tags" => array("internal"),
 		"name" => "code",
 		"type" => "string",
-		"text" => "Full type name for the class to be used for this NPC.",
+		"text" => "Full type name for the <code>ModNPC</code>-extending class to be used for this NPC.",
 		"default" => "<code>{internalName}.NPCs.{filename}</code>"
 	),
 	array(

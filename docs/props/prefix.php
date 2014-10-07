@@ -1,97 +1,187 @@
 <?php
 
 $GLOBALS["propsInfo"] = array(
-	"header" => "ModInfo",
-	"info" => "Main mod configuration file. Required by every mod.",
+	"header" => "Prefixes",
+	"info" => "Configuration for a prefix.",
 	"tags" => array(
 		array(
-			"tag" => "internal",
-			"name" => "Internal"
-		),
-		array(
-			"tag" => "info",
-			"name" => "Informative"
+			"tag" => "temp",
+			"name" => "Temporary"
 		)
 	)
 );
 
 $GLOBALS["props"] = array(
 	array(
-		"tags" => array("internal"),
-		"name" => "internalName",
+		"tags" => array("temp"),
+		"name" => "name",
 		"type" => "string",
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"drop" => "
-			<div>This property has to be unique between all mods.</div>
-			<div class=\"bs-callout bs-callout-warning\">
-				Don't use any names that might be used in other namespaces, for example:<br />
-				<ul><li>Terraria</li><li>TAPI</li><li>LitJson</li><li>System</li></ul>
-			</div>
-		"
+		"text" => "The unique prefix name in the mod.",
+		"default" => "The prefix's JSON file name without extension"
 	),
 	array(
-		"tags" => array("info"),
+		"tags" => array("temp"),
 		"name" => "displayName",
 		"type" => "string",
-		"text" => "The name visible in the mods menu."
+		"text" => "The prefix's displayed name. (Tooltips, etc.)"
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "author",
-		"type" => "string",
-		"text" => "Mod author."
+		"tags" => array("temp"),
+		"name" => "tier",
+		"type" => "int",
+		"text" => "The amount to increase(or, if negative, decrease) an item's rarity tier by."
 	),
 	array(
-		"tags" => array("info"),
-		"name" => "version",
-		"type" => array("string","int[1-4]"),
-		"text" => "The name the mod is known as internally, also the namespace used by the mod in code.",
-		"default" => "<code>[1,0,0,0]</code>",
+		"tags" => array("temp"),
+		"name" => "value",
+		"type" => "float",
+		"text" => "The amount to scale an item's value by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "damage",
+		"type" => "float",
+		"text" => "The amount to scale an item's damage by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "damage",
+		"type" => "float",
+		"text" => "The amount to scale an item's useTime by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "crit",
+		"type" => "int",
+		"text" => "The amount to increase(or, if negative, decrease) an item's crit chance by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "mana",
+		"type" => "float",
+		"text" => "The amount to scale an item's mana cost by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "shootSpeed",
+		"type" => "float",
+		"text" => "The amount to scale an item's shoot speed by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "scale",
+		"type" => "float",
+		"text" => "The amount to scale an item's scale by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "knockback",
+		"type" => "float",
+		"text" => "The amount to scale an item's knockback by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "meleeDamage",
+		"type" => "float",
+		"text" => "The amount to scale an item's melee damage by."
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "rangedDamage",
+		"type" => "float",
+		"text" => "The amount to scale an item's ranged damage by."
+	),	
+		array(
+		"tags" => array("temp"),
+		"name" => "magicDamage",
+		"type" => "float",
+		"text" => "The amount to scale an item's magic damage by."
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "minionDamage",
+		"type" => "float",
+		"text" => "The amount to scale an item's minion damage by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "allDamage",
+		"type" => "float",
+		"text" => "The amount to scale an item's melee, ranged, magic, and minion damage by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "defense",
+		"type" => "int",
+		"text" => "The amount to increase(or, if negative, decrease) the player's defense by."
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "maxLife",
+		"type" => "int",
+		"text" => "The amount to increase(or, if negative, decrease) the player's maximum life by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "maxMana",
+		"type" => "int",
+		"text" => "The amount to increase(or, if negative, decrease) the player's maximum mana by."
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "moveSpeed",
+		"type" => "float",
+		"text" => "The amount to scale the player's move speed by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "meleeSpeed",
+		"type" => "float",
+		"text" => "The amount to scale the player's melee speed by."
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "meleeCrit",
+		"type" => "int",
+		"text" => "The amount to increase(or, if negative, decrease) the player's melee crit by."
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "rangedCrit",
+		"type" => "int",
+		"text" => "The amount to increase(or, if negative, decrease) the player's ranged crit by."
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "magicCrit",
+		"type" => "int",
+		"text" => "The amount to increase(or, if negative, decrease) the player's magic crit by."
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "allCrit",
+		"type" => "int",
+		"text" => "The amount to increase(or, if negative, decrease) the player's melee, ranged, and magic crit by."
+	),	
+	array(
+		"tags" => array("temp"),
+		"name" => "type",
+		"type" => "(int or string) OR (int and/or string array)",
+		"text" => "The type(s) of item this prefix can apply to.",
 		"drop" => "
-			<div class=\"bs-example\">
-				<code>\"version\": \"r1\"</code><br />
-				<code>\"version\": [1,0,0,0]</code>
+			<div class=\"alert alert-info\">The valid strings are as follows:<br>
+			<dl>
+			<dt><code>None</code></dt><dd><b>-</b> Cannot be used by any items.</dd>
+			<dt><code>Melee</code></dt><dd><b>-</b> Can only be used by melee weapons.</dd>	
+			<dt><code>Ranged</code></dt><dd><b>-</b> Can only be used by ranged weapons.</dd>	
+			<dt><code>Magic</code></dt><dd><b>-</b> Can only be used by magic weapons.</dd>
+			<dt><code>Weapon</code></dt><dd><b>-</b> Can only be used by melee, ranged, or magic weapons.</dd>
+			<dt><code>Accessory</code></dt><dd><b>-</b> Can only be used by accessories.</dd>	
+			<dt><code>All</code></dt><dd><b>-</b> Can be used by any vanilla item.</dd>
+			<dt><code>Any</code></dt><dd><b>-</b> Can be used by any item.</dd>		
+			</dl>
 			</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "includePDB",
-		"type" => "bool",
-		"text" => "Whether the mod packer should create a debug PDB file.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>The PDB file allows tAPI to display line numbers on which errors happen.</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "warnOnReload",
-		"type" => "bool",
-		"text" => "Determines whether it's unsafe to reload the mod and the game should be restarted instead.",
-		"default" => "<code>false</code>",
-		"drop" => "
-			<div>Some mods that allow to be used as APIs can cause problems when reloaded. Set this property to mark such mods.</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "modReferences",
-		"type" => "string[?]",
-		"text" => "List of all mod dependencies.",
-		"drop" => "
-			<div class=\"myDropdownDiv\">All the names are mod <code>internalName</code> properties.</div>
-		"
-	),
-	array(
-		"tags" => array("internal"),
-		"name" => "dllReferences",
-		"type" => "string[?]",
-		"text" => "List of all DLL dependencies.",
-		"drop" => "
-			
-		",
-		"warning" => true
+		"	
 	)
 );
 
