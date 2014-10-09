@@ -630,6 +630,23 @@ $GLOBALS["props"] = array(
 		",
 		"warning" => true
 	),
+	array(
+		"name" => "noWet",
+		"tags" => array("def"),
+		"type" => "bool",
+		"text" => "Wether or not this item can be used underwater.",
+		"default" => "false (can be used underwater)"
+	),
+	array(
+		"name" => "mountType",
+		"tags" => array("def"),
+		"type" => "int",
+		"text" => "The type of mount this item spawns.",
+		"default" => "0 (None)",
+		"drop" => "
+			<div class=\"alert alert-info\">This currently only supports 1 through 6 (vanilla mounts). Custom ones may be supported in the future.</div>
+		"	
+	)
 );
 
 ?>

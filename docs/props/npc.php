@@ -144,13 +144,13 @@ $GLOBALS["props"] = array(
 		"tags" => array("gplay"),
 		"name" => "male",
 		"type" => "bool",
-		"text" => "Whether this NPC is male or female."
+		"text" => "Whether this Town NPC is male or female."
 	),
 	array(
 		"tags" => array("interface"),
 		"name" => "shop",
 		"type" => "bool",
-		"text" => "Whether this NPC has a shop.",
+		"text" => "Whether this Town NPC has a shop.",
 		"default" => false
 	),
 	array(
@@ -329,6 +329,7 @@ $GLOBALS["props"] = array(
 			</div>
 		"
 	),
+	
 	array(
 		"tags" => array("gplay"),
 		"name" => "music",
@@ -342,6 +343,20 @@ $GLOBALS["props"] = array(
 		"type" => "object[?]",
 		"text" => "An array of items this NPC can drop.",
 		"warning" => true
+	),
+	array(
+		"tags" => array("gplay"),
+		"name" => "coldDamage",
+		"type" => "bool",
+		"text" => "Wether or not the damage this npc causes should be considered 'cold' damage. (Used to reduce damage with the warmth potion).",
+		"default" => "false"
+	),
+	array(
+		"tags" => array("gplay"),
+		"name" => "collisonFallThrough",
+		"type" => "bool",
+		"text" => "Wether or not the this npc falls through platforms. (Only used by npcs using zombie AI (aiStyle 3)).",
+		"default" => "false"
 	)
 );
 
