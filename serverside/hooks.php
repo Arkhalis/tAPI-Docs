@@ -9,7 +9,7 @@ function genHookSnippet($hook, $definition) {
 
 	$s = "";
 	if (!$definition) $s .= "public override ";
-	$s .= $hReturnType." ".$hName;
+	$s .= htmlentities($hReturnType)." ".$hName;
 
 	$s .= "(";
 	$first = true;
@@ -75,7 +75,7 @@ function echoHook($hook) {
 					if ($hReturn["type"] != "void") {
 						echo("<table class=\"table table-condensed\" style=\"margin-bottom: 8px;\">");
 							echo("<tbody><tr>");
-								echo("<td><span style=\"font-weight: bold;\">Returns: </span> <code>".$hReturn["type"]."</code></td>");
+								echo("<td><span style=\"font-weight: bold;\">Returns: </span> <code>".htmlentities($hReturn["type"])."</code></td>");
 								echo("<td>".$hReturn["text"]."</td>");
 							echo("</tr></tbody>");
 						echo("</table>");
