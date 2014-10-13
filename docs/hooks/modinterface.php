@@ -6,6 +6,35 @@ $GLOBALS["hooksInfo"] = array(
 
 $GLOBALS["hooks"] = array(
 	array(
+		"hook" => "OnCombatTextSpawn",
+		"args" => array(
+			array(
+				"type" => "ref CombatText", "name" => "combattext",
+				"text" => "New CombatText instance."
+			),
+			array(
+				"type" => "Rectangle", "name" => "location",
+				"text" => "Bounding box of the CombatText."
+			)
+		),
+		"text" => "Called when a new CombatText instance is created (damage being dealt)."
+	),
+	array(
+		"hook" => "OnItemTextSpawn",
+		"args" => array(
+			array(
+				"type" => "ref ItemText", "name" => "itemtext",
+				"text" => "New ItemText instance."
+			),
+			array(
+				"type" => "Item", "name" => "item",
+				"text" => "Item for which the ItemText was created."
+			)
+		),
+		"text" => "Called when a new ItemText instance is created (item being picked up / crafted / reforged)."
+	),
+	
+	array(
 		"hook" => "ModifyInterfaceLayerList",
 		"args" => array(
 			array(

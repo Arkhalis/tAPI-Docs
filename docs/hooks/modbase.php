@@ -7,7 +7,7 @@ $GLOBALS["hooksInfo"] = array(
 $GLOBALS["hooks"] = array(
 	array(
 		"hook" => "OnLoad",
-		"text" => "Called when the mod gets loaded."
+		"text" => "Called when the mod gets loaded (the whole code is already prepared to be used and all resources are loaded)."
 	),
 	array(
 		"hook" => "OnUnload",
@@ -16,6 +16,28 @@ $GLOBALS["hooks"] = array(
 	array(
 		"hook" => "OnAllModsLoaded",
 		"text" => "Called after all mods get loaded."
+	),
+
+	array(
+		"hook" => "OptionChanged",
+		"args" => array(
+			array(
+				"type" => "Option", "name" => "option",
+				"text" => "Mod option."
+			)
+		),
+		"text" => "Called when leaving the options page for each option."
+	),
+	array(
+		"hook" => "OptionList",
+		"args" => array(
+			array(
+				"type" => "Option", "name" => "option",
+				"text" => "Mod option."
+			)
+		),
+		"return" => array("type" => "List<string>", "default" => "null", "text" => "The list of possible values."),
+		"text" => "Called on options of type <code>Dynamic</code> to fill <code>possibleValues</code>."
 	),
 
 	array(
@@ -51,33 +73,19 @@ $GLOBALS["hooks"] = array(
 	),
 
 	array(
-		"hook" => "OnCombatTextSpawn",
+		"hook" => "OnModCall",
 		"args" => array(
 			array(
-				"type" => "ref CombatText", "name" => "combattext",
-				"text" => "New CombatText instance."
+				"type" => "ModBase", "name" => "mod",
+				"text" => "Calling mod's ModBase instance."
 			),
 			array(
-				"type" => "Rectangle", "name" => "location",
-				"text" => "Bounding box of the CombatText."
+				"type" => "params object[]", "name" => "args",
+				"text" => "Arguments passed to this mod."
 			)
 		),
-		"text" => "Called when a new CombatText instance is created (damage being dealt)."
+		"text" => "Triggered by other mods. Can be used for adding simple cross-mod code execution without adding a mod dependency."
 	),
-	array(
-		"hook" => "OnItemTextSpawn",
-		"args" => array(
-			array(
-				"type" => "ref ItemText", "name" => "itemtext",
-				"text" => "New ItemText instance."
-			),
-			array(
-				"type" => "Item", "name" => "item",
-				"text" => "Item for which the ItemText was created."
-			)
-		),
-		"text" => "Called when a new ItemText instance is created (item being picked up / crafted / reforged)."
-	)
 );
 
 ?>
