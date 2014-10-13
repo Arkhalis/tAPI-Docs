@@ -9,7 +9,7 @@ $GLOBALS["hooks"] = array(
 		"hook" => "OnCombatTextSpawn",
 		"args" => array(
 			array(
-				"type" => "ref CombatText", "name" => "combattext",
+				"type" => "CombatText", "name" => "combattext",
 				"text" => "New CombatText instance."
 			),
 			array(
@@ -23,7 +23,7 @@ $GLOBALS["hooks"] = array(
 		"hook" => "OnItemTextSpawn",
 		"args" => array(
 			array(
-				"type" => "ref ItemText", "name" => "itemtext",
+				"type" => "ItemText", "name" => "itemtext",
 				"text" => "New ItemText instance."
 			),
 			array(
@@ -421,6 +421,60 @@ $GLOBALS["hooks"] = array(
 			)
 		),
 		"text" => "Called after a NPC tooltip gets drawn."
+	),
+
+	array(
+		"hook" => "PreDrawTooltipBuff",
+		"args" => array(
+			array(
+				"type" => "SpriteBatch", "name" => "sb",
+				"text" => "SpriteBatch instance used to do all the drawing."
+			),
+			array(
+				"type" => "int", "name" => "buffIndex",
+				"text" => "Index of the buff in arrays."
+			),
+			array(
+				"type" => "int", "name" => "buffType",
+				"text" => "Type of the buff."
+			),
+			array(
+				"type" => "ref string", "name" => "text",
+				"text" => "The text to be drawn."
+			),
+			array(
+				"type" => "ref bool", "name" => "imbue",
+				"text" => "Whether the buff comes from a melee enchantment."
+			)
+		),
+		"return" => array("type" => "bool", "default" => "true", "text" => "Whether the buff tooltip should be drawn."),
+		"text" => "Called before a buff tooltip gets drawn."
+	),
+	array(
+		"hook" => "PostDrawTooltipBuff",
+		"args" => array(
+			array(
+				"type" => "SpriteBatch", "name" => "sb",
+				"text" => "SpriteBatch instance used to do all the drawing."
+			),
+			array(
+				"type" => "int", "name" => "buffIndex",
+				"text" => "Index of the buff in arrays."
+			),
+			array(
+				"type" => "int", "name" => "buffType",
+				"text" => "Type of the buff."
+			),
+			array(
+				"type" => "string", "name" => "text",
+				"text" => "The text to be drawn."
+			),
+			array(
+				"type" => "bool", "name" => "imbue",
+				"text" => "Whether the buff comes from a melee enchantment."
+			)
+		),
+		"text" => "Called after a buff tooltip gets drawn."
 	),
 
 	array(

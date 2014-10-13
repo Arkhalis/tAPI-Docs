@@ -91,32 +91,8 @@ $GLOBALS["hooks"] = array(
 				"text" => "Type of the wire being triggered (1/2/3)"
 			)
 		),
-		"return" => array("type" => "bool", "default" => "true", "text" => "Whether the wire current should go further."),
+		"return" => array("type" => "bool", "default" => "true", "text" => "Whether the wire handling code should continue."),
 		"text" => "Called when a wire current goes through a tile.",
-		"warning" => true //not sure about the 'return' and 'text' and 'wireType' (if it's 1/2/3 really)
-	),
-
-	array(
-		"hook" => "PlayerConnected",
-		"args" => array(
-			array(
-				"type" => "int", "name" => "index",
-				"text" => "Index of the connecting player in the Main.player array."
-			)
-		),
-		"text" => "Called when a player joins the server.",
-		"warning" => true //not sure if it's called on both the server and client
-	),
-	array(
-		"hook" => "PlayerDisconnected",
-		"args" => array(
-			array(
-				"type" => "Player", "name" => "player",
-				"text" => "Player instance that got disconnected."
-			)
-		),
-		"text" => "Called when a player leaves the server.",
-		"warning" => true //not sure if it's called on both the server and client
 	)
 );
 

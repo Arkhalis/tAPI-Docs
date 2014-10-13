@@ -17,9 +17,9 @@
 		<ul class="dropdown-menu">
 			<?php echo($GLOBALS["csDoc"] == "modbase" ? "<li class=\"active\">" : "<li>"); ?><a href="./?mode=hooks&doc=modbase">ModBase</a></li>
 			<?php echo($GLOBALS["csDoc"] == "modbuff" ? "<li class=\"active\">" : "<li>"); ?><a href="./?mode=hooks&doc=modbuff">ModBuff</a></li>
-			<?php echo($GLOBALS["csDoc"] == "modentity" ? "<li class=\"active\">" : "<li>"); ?><a href="./?mode=hooks&doc=modentity">ModEntity</a></li>
 			<?php echo($GLOBALS["csDoc"] == "modinterface" ? "<li class=\"active\">" : "<li>"); ?><a href="./?mode=hooks&doc=modinterface">ModInterface</a></li>
 			<?php echo($GLOBALS["csDoc"] == "moditem" ? "<li class=\"active\">" : "<li>"); ?><a href="./?mode=hooks&doc=moditem">ModItem</a></li>
+			<?php echo($GLOBALS["csDoc"] == "modnet" ? "<li class=\"active\">" : "<li>"); ?><a href="./?mode=hooks&doc=modnet">ModNet</a></li>
 			<?php echo($GLOBALS["csDoc"] == "modnpc" ? "<li class=\"active\">" : "<li>"); ?><a href="./?mode=hooks&doc=modnpc">ModNPC</a></li>
 			<?php echo($GLOBALS["csDoc"] == "modplayer" ? "<li class=\"active\">" : "<li>"); ?><a href="./?mode=hooks&doc=modplayer">ModPlayer</a></li>
 			<?php echo($GLOBALS["csDoc"] == "modprefix" ? "<li class=\"active\">" : "<li>"); ?><a href="./?mode=hooks&doc=modprefix">ModPrefix</a></li>

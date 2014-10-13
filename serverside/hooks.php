@@ -45,8 +45,8 @@ function echoHook($hook) {
 
 			echo("<div class=\"myDropdownTarget myCopy\" style=\"padding-left: 12px;\">");
 				echo("<div style=\"margin-bottom: 12px; clear: both;\">
-					<button type=\"button\" class=\"myCopyButton btn btn-default btn-sm\" style=\"float: left;\">Copy</button>
-					<div style=\"float: left; position: relative; z-index: -1; margin-left: -4px; margin-top: 4px;\"><code class=\"myCopyText\" style=\"padding: 7px 6px 6px 10px;\">".genHookSnippet($hook, false)."</code></div>
+					<div style=\"float: left;\"><button type=\"button\" class=\"myCopyButton btn btn-default btn-sm\" style=\"float: left;\">Copy</button></div>
+					<div style=\"float: left; margin-top: 4px; margin-bottom: 8px;\"><code class=\"myCopyText\" style=\"border-top-left-radius: 0; border-bottom-left-radius: 0; padding: 7px 6px 6px 6px;\">".genHookSnippet($hook, false)."</code></div>
 				</div>");
 
 				if (array_key_exists("args", $hook)) {
