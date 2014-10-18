@@ -127,6 +127,23 @@ $GLOBALS["props"] = array(
 	),
 	array(
 		"tags" => array("temp"),
+		"name" => "sheetYAligned",
+		"type" => "bool",
+		"text" => "Wether the tile's spritesheet has frames along the X or Y axis.",
+		"default" => "false",
+		"drop" => "
+			<div class=\"alert alert-info\">This is mainly used for placeStyle as well as animation.</div>
+		"	
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "checkWalls",
+		"type" => "bool",
+		"text" => "Wether or not this tile should check tile placement if walls behind it are broken.",
+		"default" => "false, true if the tile has the "wall" placement condition."
+	),
+	array(
+		"tags" => array("temp"),
 		"name" => "solid",
 		"type" => "bool",
 		"text" => "Wether or not a tile has collision.",
@@ -155,13 +172,27 @@ $GLOBALS["props"] = array(
 	),
 	array(
 		"tags" => array("temp"),
+		"name" => "directional",
+		"type" => "bool",
+		"text" => "Wether or not this tile should place the first or second frame based on player direction.",
+		"default" => "false"
+		"drop" => "
+			<div class=\"alert alert-info\">
+			This is mainly used for stuff like furniture, beds, etc..
+			</div>
+		"		
+	),		
+	array(
+		"tags" => array("temp"),
 		"name" => "placementFrameX",
 		"type" => "int",
 		"text" => "The specific X frame of the tile to use when it is placed.",
 		"default" => "0",
 		"drop" => "
-			<div class=\"alert alert-info\">Note: This is only used if you have <code>frameImportant</code> set to true.
-			This is the frame count, not actual pixels.</div>
+			<div class=\"alert alert-info\">
+			Note: This is only used if you have <code>frameImportant</code> set to true.
+			This is the frame count, not actual pixels.
+			</div>
 		"	
 	),
 	array(
@@ -171,18 +202,21 @@ $GLOBALS["props"] = array(
 		"text" => "The specific Y frame of the tile to use when it is placed.",
 		"default" => "0",
 		"drop" => "
-			<div class=\"alert alert-info\">Note: This is only used if you have <code>frameImportant</code> set to true.
-			This is the frame count, not actual pixels.</div>
+			<div class=\"alert alert-info\">
+			Note: This is only used if you have <code>frameImportant</code> set to true.
+			This is the frame count, not actual pixels.
+			</div>
 		"
 	),
 	array(
 		"tags" => array("temp"),
 		"name" => "placementConditions",
-		"type" => "string[]",
-		"text" => "A string[] of preset conditions used to determine of a tile can be placed or stay in place.",
+		"type" => "string or string[]",
+		"text" => "A string or string[] of preset conditions used to determine of a tile can be placed or stay in place.",
 		"default" => "<code>placeTouchingSolid</code> is the tile is 1x1, <code>flatGroundSolid</code> if not.",
 		"drop" => "
-			<div class=\"alert alert-info\">Note: A string with 'Solid' at the end only allows placement if every tile it checks has <code>solid</code> as true.<br>
+			<div class=\"alert alert-info\">
+			Note: A string with 'Solid' at the end only allows placement if every tile it checks has <code>solid</code> as true.<br>
 			The strings accepted as placement conditions are:<br>
 			<dl>
 			<dt><code>air</code></dt><dd><b>-</b> can be placed anywhere, always.</dd>
@@ -323,6 +357,19 @@ $GLOBALS["props"] = array(
 	),
 	array(
 		"tags" => array("temp"),
+		"name" => "bed",
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered a viable spawn point.",
+		"default" => "false"
+		"drop" => "
+			<div class=\"alert alert-info\">
+			"Note that this is does not make the tile function as a bed; you need to make the spawn point click code yourself. This merely
+			prevents the game from removing the spawn point for your tile when it runs spawn point validity checks.
+			</div>
+		"		
+	),	
+	array(
+		"tags" => array("temp"),
 		"name" => "rope",
 		"type" => "bool",
 		"text" => "Causes this tile to have similar behavior to a rope.",
@@ -377,16 +424,6 @@ $GLOBALS["props"] = array(
 		"type" => "int",
 		"text" => "The chance of the sparkle. (Higher numbers == less chance)",
 		"default" => "0"
-	),
-	array(
-		"tags" => array("temp"),
-		"name" => "sheetYAligned",
-		"type" => "bool",
-		"text" => "Wether the tile's spritesheet has frames along the X or Y axis.",
-		"default" => "false",
-		"drop" => "
-			<div class=\"alert alert-info\">This is mainly used for placeStyle as well as animation.</div>
-		"	
 	),
 	array(
 		"tags" => array("temp"),
