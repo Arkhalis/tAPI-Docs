@@ -140,7 +140,7 @@ $GLOBALS["props"] = array(
 		"name" => "checkWalls",
 		"type" => "bool",
 		"text" => "Wether or not this tile should check tile placement if walls behind it are broken.",
-		"default" => "false, true if the tile has the "wall" placement condition."
+		"default" => "false, true if the tile has the \"wall\" placement condition."
 	),
 	array(
 		"tags" => array("temp"),
@@ -175,7 +175,7 @@ $GLOBALS["props"] = array(
 		"name" => "directional",
 		"type" => "bool",
 		"text" => "Wether or not this tile should place the first or second frame based on player direction.",
-		"default" => "false"
+		"default" => "false",
 		"drop" => "
 			<div class=\"alert alert-info\">
 			This is mainly used for stuff like furniture, beds, etc..
@@ -357,19 +357,6 @@ $GLOBALS["props"] = array(
 	),
 	array(
 		"tags" => array("temp"),
-		"name" => "bed",
-		"type" => "bool",
-		"text" => "Wether or not this tile should be considered a viable spawn point.",
-		"default" => "false"
-		"drop" => "
-			<div class=\"alert alert-info\">
-			"Note that this is does not make the tile function as a bed; you need to make the spawn point click code yourself. This merely
-			prevents the game from removing the spawn point for your tile when it runs spawn point validity checks.
-			</div>
-		"		
-	),	
-	array(
-		"tags" => array("temp"),
 		"name" => "rope",
 		"type" => "bool",
 		"text" => "Causes this tile to have similar behavior to a rope.",
@@ -390,6 +377,45 @@ $GLOBALS["props"] = array(
 		"text" => "Wether or not this tile should be considered part of the dungeon.",
 		"default" => "false"
 	),
+	array(
+		"tags" => array("temp"),
+		"name" => "spawn",
+		"type" => "bool",
+		"text" => "Wether or not this tile should be considered a viable spawn point.",
+		"default" => "false",
+		"drop" => "
+			<div class=\"alert alert-info\">
+			Note that this is does not make the tile function like a bed; you need to make the spawn point click code yourself. This merely
+			prevents the game from removing the spawn point for your tile when it runs spawn point validity checks.
+			</div>
+		"		
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "spawnAt",
+		"type" => "int[2]",
+		"text" => "The tile position within this tile the player should respawn at.",
+		"default" => "The bottom middle of the tile",
+		"drop" => "
+			<div class=\"alert alert-info\">
+			This only is used if <code>spawn</code> is true. Also, this does not prevent the player from teleporting to the nearest 
+			tile below them, so try to avoid Y values that are not at the bottom layer of the tile.
+			</div>
+		"		
+	),
+	array(
+		"tags" => array("temp"),
+		"name" => "adjTile",
+		"type" => "int and/or string array",
+		"text" => "Array of tile IDs, names of tiles, or both that this tile can be considered when crafting.",
+		"default" => "false",
+		"drop" => "
+			<div class=\"alert alert-info\">
+			For example, \"adjTile\": [\"Furnace\", \"Work Bench\"], would produce a tile that is considered a furnace and a workbench when
+			choosing what recipes the player can make.
+			</div>
+		"
+	),	
 	array(
 		"tags" => array("temp"),
 		"name" => "blocksLight",
