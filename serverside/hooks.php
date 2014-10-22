@@ -45,7 +45,7 @@ function echoHook($hook) {
 
 			echo("<div class=\"myDropdownTarget myCopy\" style=\"padding-left: 12px;\">");
 				echo("<div style=\"margin-bottom: 12px; clear: both;\">
-					<button type=\"button\" class=\"myCopyButton btn btn-default btn-sm\" style=\"float: left;\">Copy</button>
+					<div style=\"float: left;\"><button type=\"button\" class=\"myCopyButton btn btn-default btn-sm\" style=\"float: left;\">Copy</button></div>
 					<div style=\"float: left; margin-top: 4px; margin-bottom: 8px;\"><code class=\"myCopyText\" style=\"border-top-left-radius: 0; border-bottom-left-radius: 0; padding: 7px 6px 6px 6px;\">".genHookSnippet($hook, false)."</code></div>
 				</div>");
 
@@ -156,15 +156,14 @@ function echoHook($hook) {
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="./">tAPI Docs</a>
+					<a class="navbar-brand" href="./"><div style="float: left;"><img style="margin-top: -14px;" src="logo_h50.png" alt="tAPI"/></div><div style="float: left; margin-left: 8px;"> Docs</div></a>
 				</div>
 				<div class="collapse navbar-collapse">
 <?php loadCached("nav.php","nav.php"); ?>
 				</div>
 			</div>
 		</div>
-		<div style="height: 71px;">&nbsp;</div>
-		<div class="container bs-docs-container">
+		<div class="container bs-docs-container" style="margin-top: 71px;">
 			<div class="row">
 				<div class="col-md-12" role="main">
 					<div class="bs-docs-section">
@@ -192,7 +191,17 @@ foreach ($GLOBALS["hooks"] as $hook) {
 			$(document).ready(function(){
 				$(".myDropdown").each(function(id){
 					var this1 = this;
+					$(this).find(".myButtonDropdown").click(function(){
+						$(this1).find(".myDropdownTarget").toggle();
+						$(this1).toggleClass("dropdown dropup");
+					});
 					$(this).find(".myDivDropdown").click(function(){
+						$(this1).find(".myDropdownTarget").toggle();
+						$(this1).toggleClass("dropdown dropup");
+					});
+
+
+					$(this).find(".myButtonDropdown").click(function(){
 						$(this1).find(".myDropdownTarget").toggle();
 						$(this1).toggleClass("dropdown dropup");
 					});
@@ -206,9 +215,9 @@ foreach ($GLOBALS["hooks"] as $hook) {
 						clipboard.setData("text/plain", $(this1).find(".myCopyText").text());
 					});
 				});
-				
-				var zc = zc = new ZeroClipboard(document.getElementsByClassName("copy-button"));
 			});
+
+			var zc = new ZeroClipboard(document.getElementById("copy-button"));
 		</script>
 	</body>
 </html>

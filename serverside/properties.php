@@ -95,7 +95,7 @@ function echoProps($tag) {
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="./">tAPI Docs</a>
+					<a class="navbar-brand" href="./"><div style="float: left;"><img style="margin-top: -14px;" src="logo_h50.png" alt="tAPI"/></div><div style="float: left; margin-left: 8px;"> Docs</div></a>
 				</div>
 				<div class="collapse navbar-collapse">
 <?php loadCached("nav.php","nav.php"); ?>
