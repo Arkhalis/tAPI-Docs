@@ -156,7 +156,12 @@ function echoHook($hook) {
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="./"><div style="float: left;"><img style="margin-top: -14px;" src="logo_h50.png" alt="tAPI"/></div><div style="float: left; margin-left: 8px;"> Docs</div></a>
+					<div style="float: left;">
+						<a class="navbar-brand" href="../"><img style="margin-top: -14px;" src="logo_h50.png" alt="tAPI"/></a>
+					</div>
+					<div style="float: left;">
+						<a class="navbar-brand" href="./">Docs</a>
+					</div>
 				</div>
 				<div class="collapse navbar-collapse">
 <?php loadCached("nav.php","nav.php"); ?>
